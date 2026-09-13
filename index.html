@@ -2,65 +2,268 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>ANS WFM Individual</title>
+<title>Escala Operacional - ANS - LiderBpo | Versão 8.2</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <style>
-body{font-family:Arial;background:#edf4f7;margin:0;color:#17324d}
-header{background:#005b7f;color:white;padding:22px;font-size:24px;font-weight:bold}
-.container{max-width:900px;margin:auto;padding:25px}
-.card{background:white;padding:25px;border-radius:16px;margin-bottom:20px;box-shadow:0 4px 15px #ccd}
-input,button{width:100%;padding:14px;margin-top:10px;border-radius:10px}
-input{border:1px solid #ccc}button{background:#007c91;color:white;border:0;font-weight:bold}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
-.box{padding:20px;background:#f3fafc;border-radius:12px}
-@media(max-width:700px){.grid{grid-template-columns:1fr}}
+:root{
+  --azul:#0c5f7b;
+  --azul-escuro:#16385a;
+  --verde:#77a63f;
+  --fundo:#edf4f7;
+  --texto:#17324d;
+}
+*{box-sizing:border-box}
+body{
+  font-family:Arial, Helvetica, sans-serif;
+  background:var(--fundo);
+  margin:0;
+  color:var(--texto);
+}
+header{
+  background:#fff;
+  border-bottom:4px solid var(--azul);
+  padding:18px 28px;
+}
+.header-wrap{
+  max-width:1180px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+.header-wrap img{
+  width:64px;
+  height:auto;
+}
+.header-text h1{
+  margin:0;
+  font-size:22px;
+  color:var(--azul-escuro);
+}
+.header-text p{
+  margin:6px 0 0;
+  color:#506b80;
+  font-size:13px;
+}
+.version{
+  font-size:12px;
+  color:#5f7b90;
+  margin-top:3px;
+}
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:32px 20px 40px;
+}
+.login-card{
+  background:#fff;
+  width:100%;
+  max-width:520px;
+  min-height:520px;
+  margin:20px auto 28px;
+  padding:34px 28px;
+  border-radius:22px;
+  box-shadow:0 6px 24px rgba(28, 55, 90, 0.12);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.login-card h2{
+  margin:0 0 14px;
+  font-size:20px;
+  color:var(--azul-escuro);
+}
+.login-card .legend{
+  margin:0 0 18px;
+  color:#4f6c80;
+}
+label{
+  display:block;
+  font-size:14px;
+  font-weight:bold;
+  margin:14px 0 6px;
+}
+input{
+  width:100%;
+  padding:14px 14px;
+  border:1px solid #b9cada;
+  border-radius:12px;
+  background:#f6fbfd;
+  font-size:15px;
+}
+input:focus{
+  outline:none;
+  border-color:var(--azul);
+  background:#fff;
+}
+button{
+  width:100%;
+  padding:14px;
+  margin-top:18px;
+  border-radius:12px;
+  border:0;
+  background:var(--azul);
+  color:#fff;
+  font-weight:bold;
+  font-size:16px;
+  cursor:pointer;
+}
+button:hover{
+  background:#0a4f66;
+}
+.welcome{
+  margin-top:18px;
+  padding:14px 16px;
+  border-radius:12px;
+  background:#f2f8ef;
+  color:#355828;
+  border:1px solid #d8e6cf;
+  text-align:center;
+  font-size:14px;
+  line-height:1.5;
+}
+.erro{
+  color:#b42318;
+  margin-top:12px;
+  text-align:center;
+  font-size:14px;
+  min-height:18px;
+}
+
+.card{
+  background:#fff;
+  padding:25px;
+  border-radius:16px;
+  margin-bottom:20px;
+  box-shadow:0 4px 15px rgba(28,55,90,.10);
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+}
+.box{
+  padding:20px;
+  background:#f3fafc;
+  border-radius:12px;
+  border:1px solid #d9e9ef;
+}
+.box b{
+  display:block;
+  margin-top:8px;
+  font-size:20px;
+  color:var(--azul-escuro);
+}
+.top-note{
+  display:inline-block;
+  background:#e8f3f7;
+  color:var(--azul);
+  font-size:12px;
+  padding:6px 10px;
+  border-radius:999px;
+  margin-bottom:10px;
+}
+#dados{
+  line-height:1.8;
+}
+@media(max-width:700px){
+  .header-wrap{
+    align-items:flex-start;
+  }
+  .header-wrap img{
+    width:54px;
+  }
+  .header-text h1{
+    font-size:18px;
+  }
+  .container{
+    padding:22px 12px 30px;
+  }
+  .login-card{
+    min-height:auto;
+    padding:26px 18px;
+    border-radius:18px;
+  }
+  .grid{
+    grid-template-columns:1fr;
+  }
+}
 </style>
 </head>
 <body>
-<header>ANS WFM | Portal Individual de Escala</header>
+<header>
+  <div class="header-wrap">
+    <img src="ans-logo.jpg" alt="ANS">
+    <div class="header-text">
+      <h1>Escala Operacional - ANS - LiderBpo</h1>
+      <p>Portal operacional de pausas e escala</p>
+      <div class="version">Versão 8.2</div>
+    </div>
+  </div>
+</header>
+
 <div class="container">
-<div class="card" id="login">
-<h2>Acesso do colaborador</h2>
-<input id="user" placeholder="nome.sobrenome">
-<input id="pass" type="password" placeholder="Senha">
-<button onclick="entrar()">Entrar</button>
-<p id="erro"></p>
+
+  <div class="login-card" id="login">
+    <div class="top-note">Acesso individual do colaborador</div>
+    <h2>Entrar no portal</h2>
+    <p class="legend">Informe seu usuário no padrão <b>nome.sobrenome</b> e sua senha individual.</p>
+
+    <label for="user">Login</label>
+    <input id="user" placeholder="nome.sobrenome">
+
+    <label for="pass">Senha</label>
+    <input id="pass" type="password" placeholder="Digite sua senha">
+
+    <button onclick="entrar()">Entrar</button>
+
+    <div class="welcome">Olá, que bom ter você aqui! Tenha um ótimo plantão.</div>
+    <div class="erro" id="erro"></div>
+  </div>
+
+  <div id="painel" style="display:none">
+    <div class="card">
+      <div class="top-note">Consulta individual</div>
+      <h2 id="nome"></h2>
+      <p id="dados"></p>
+    </div>
+
+    <div class="card">
+      <h2>Minhas pausas</h2>
+      <div class="grid">
+        <div class="box">☕ Pausa 1<b id="p1"></b></div>
+        <div class="box">🍽 Almoço<b id="al"></b></div>
+        <div class="box">☕ Pausa 2<b id="p2"></b></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Minha escala</h2>
+      <p>Consulta individual de setembro/2026.</p>
+      <p>Escala operacional conforme cadastro do colaborador.</p>
+    </div>
+  </div>
 </div>
 
-<div id="painel" style="display:none">
-<div class="card">
-<h2 id="nome"></h2>
-<p id="dados"></p>
-</div>
-<div class="card">
-<h2>Minhas pausas</h2>
-<div class="grid">
-<div class="box">☕ Pausa 1<br><b id="p1"></b></div>
-<div class="box">🍽 Almoço<br><b id="al"></b></div>
-<div class="box">☕ Pausa 2<br><b id="p2"></b></div>
-</div>
-</div>
-<div class="card">
-<h2>Minha escala</h2>
-<p>Consulta individual de setembro/2026.</p>
-</div>
-</div>
-</div>
 <script src="usuarios.js"></script>
 <script>
 function entrar(){
-let u=document.getElementById('user').value.toLowerCase();
-let p=document.getElementById('pass').value;
-let x=usuarios.find(a=>a.usuario==u && a.senha==p);
-if(x){
-login.style.display='none';
-painel.style.display='block';
-nome.innerHTML=x.nome;
-dados.innerHTML='Cargo: '+x.cargo+'<br>Supervisor: '+x.supervisor+'<br>Jornada: '+x.entrada+' às '+x.saida;
-p1.innerHTML=x.pausa1;
-al.innerHTML=x.almoco;
-p2.innerHTML=x.pausa2;
-}else erro.innerHTML='Usuário ou senha inválidos';
+  let u = document.getElementById('user').value.toLowerCase().trim();
+  let p = document.getElementById('pass').value.trim();
+  let x = usuarios.find(a => a.usuario == u && a.senha == p);
+
+  if(x){
+    login.style.display = 'none';
+    painel.style.display = 'block';
+    nome.innerHTML = x.nome;
+    dados.innerHTML = 'Cargo: ' + x.cargo + '<br>Supervisor: ' + x.supervisor + '<br>Jornada: ' + x.entrada + ' às ' + x.saida;
+    p1.innerHTML = x.pausa1;
+    al.innerHTML = x.almoco;
+    p2.innerHTML = x.pausa2;
+    erro.innerHTML = '';
+  } else {
+    erro.innerHTML = 'Usuário ou senha inválidos.';
+  }
 }
 </script>
 </body>
