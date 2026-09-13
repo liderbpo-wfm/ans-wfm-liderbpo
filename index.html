@@ -2,492 +2,646 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Escala Operacional - ANS - LiderBpo | Versão 8.6.2</title>
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Escala Operacional - ANS - LiderBpo | Versão 8.8</title>
 <style>
 :root{
-  --azul:#0d7897;
-  --azul-escuro:#143d60;
-  --azul-claro:#f3f9fc;
-  --fundo:#edf4f7;
-  --borda:#d8e5ec;
-  --texto:#17324d;
-  --muted:#5c7284;
-  --verde-bg:#dff4e6;
-  --verde:#0f7b41;
-  --cinza-bg:#eceff3;
-  --cinza:#586471;
-  --vermelho-bg:#f8dede;
-  --vermelho:#b03636;
-  --roxo-bg:#eadfff;
-  --roxo:#7341b5;
-  --amarelo-bg:#fff0bd;
-  --amarelo:#916d00;
+  --bg:#edf4f7;
+  --card:#ffffff;
+  --text:#163554;
+  --muted:#627789;
+  --border:#d9e5ec;
+  --primary:#0c6b8a;
+  --primary-dark:#123d61;
+  --green-bg:#d9f2e3;
+  --green:#0a7d3b;
+  --gray-bg:#eef2f5;
+  --gray:#4e6170;
+  --red-bg:#f8dddd;
+  --red:#c53030;
+  --purple-bg:#eadfff;
+  --purple:#6f42c1;
+  --yellow-bg:#f8e8b1;
+  --yellow:#9a6a00;
+  --logout-bg:#fdeaea;
+  --logout:#e53935;
 }
 *{box-sizing:border-box}
 body{
   margin:0;
-  background:var(--fundo);
-  color:var(--texto);
   font-family:Arial, Helvetica, sans-serif;
+  background:var(--bg);
+  color:var(--text);
 }
-header{
+.header{
   background:#fff;
-  border-bottom:4px solid var(--azul);
-  padding:20px 30px;
+  border-bottom:4px solid var(--primary);
+  padding:20px 32px;
 }
-.header-wrap{
-  max-width:1180px;
+.header-inner{
+  max-width:1280px;
   margin:0 auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+}
+.brand{
   display:flex;
   align-items:center;
   gap:16px;
 }
-.header-wrap img{
-  width:58px;
-  height:auto;
-}
-.header-title{
-  font-size:20px;
-  font-weight:700;
-  color:var(--azul-escuro);
+.brand img{width:62px; height:auto}
+.brand-title{
+  font-size:24px;
+  font-weight:800;
+  color:var(--primary-dark);
   margin:0;
 }
-.header-sub{
-  margin:6px 0 0;
-  color:var(--muted);
-  font-size:13px;
-}
-.header-version{
-  margin-top:6px;
-  font-size:12px;
-  color:#637f91;
+.brand-version{
+  color:var(--primary-dark);
+  font-size:18px;
   font-weight:700;
+  margin-top:6px;
 }
-.container{
-  max-width:1180px;
+.current-date{
+  color:var(--primary-dark);
+  font-size:13px;
+  font-weight:700;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  white-space:nowrap;
+}
+.wrapper{
+  max-width:1280px;
   margin:0 auto;
-  padding:34px 18px 44px;
+  padding:28px;
 }
 .card{
-  background:#fff;
-  border-radius:22px;
-  box-shadow:0 8px 26px rgba(24,57,86,.08);
-  padding:26px;
-  margin-bottom:22px;
+  background:var(--card);
+  border-radius:24px;
+  padding:28px;
+  box-shadow:0 10px 28px rgba(17,48,73,.08);
+  margin-bottom:26px;
 }
 .login-card{
-  max-width:590px;
-  margin:22px auto 0;
-  padding:28px 28px 24px;
+  max-width:560px;
+  margin:40px auto;
 }
-.login-card h2{
-  margin:0 0 16px;
+.login-title{
+  margin:0 0 10px;
   font-size:22px;
-  color:var(--azul-escuro);
+  color:var(--primary-dark);
 }
-.login-card p.desc{
+.login-desc{
   margin:0 0 18px;
-  color:var(--texto);
+  color:var(--text);
   font-size:14px;
 }
-label{
-  display:block;
-  font-size:14px;
-  font-weight:700;
-  margin:14px 0 8px;
-}
-input{
+.login-card input{
   width:100%;
   height:48px;
-  border:1px solid #b8cbd7;
   border-radius:12px;
-  background:#f8fbfd;
+  border:1px solid #bccdd8;
+  background:#f6fafc;
   padding:0 14px;
   font-size:15px;
-  color:var(--texto);
+  margin:10px 0;
 }
-input:focus{
-  outline:none;
-  border-color:var(--azul);
-  background:#fff;
-}
-.actions{
-  margin-top:18px;
+.login-actions{
+  text-align:center;
+  margin-top:8px;
 }
 .btn{
   border:0;
   border-radius:12px;
-  background:var(--azul);
-  color:#fff;
-  font-weight:700;
-  cursor:pointer;
   padding:13px 26px;
   font-size:15px;
+  font-weight:700;
+  cursor:pointer;
 }
-.btn:hover{ background:#0a6984; }
-.btn-logout{
-  background:#677684;
-  padding:11px 20px;
+.btn-primary{
+  background:var(--primary);
+  color:#fff;
 }
-.btn-logout:hover{ background:#53606d; }
+.btn-primary:hover{background:#095b75}
 .welcome{
-  margin-top:18px;
   text-align:center;
-  color:#4c6477;
+  color:#4f6779;
   font-size:13px;
+  margin-top:14px;
 }
 .error{
+  text-align:center;
+  color:#cc2f2f;
   min-height:18px;
-  color:#b03434;
-  margin-top:12px;
+  margin-top:10px;
   font-size:13px;
 }
-.toolbar{
+.hidden{display:none}
+
+.profile-card{
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  gap:24px;
+  align-items:start;
+}
+.avatar{
+  width:96px;
+  height:96px;
+  border-radius:50%;
+  background:#e3edf5;
   display:flex;
-  justify-content:flex-end;
-  margin-bottom:14px;
+  align-items:center;
+  justify-content:center;
+  font-size:30px;
+  font-weight:800;
+  color:var(--primary-dark);
 }
-.identity h2{
+.profile-info h2{
   margin:0 0 10px;
-  font-size:20px;
-  color:var(--azul-escuro);
+  font-size:22px;
+  color:#152f4a;
 }
-.identity p{
-  margin:6px 0;
-  color:var(--texto);
+.profile-info p{
+  margin:8px 0;
+  font-size:16px;
 }
+.profile-side{
+  text-align:right;
+}
+.logout-btn{
+  background:var(--logout-bg);
+  color:var(--logout);
+  padding:14px 28px;
+  border-radius:16px;
+  font-weight:800;
+  border:0;
+  cursor:pointer;
+  font-size:16px;
+}
+.logout-note{
+  margin-top:18px;
+  color:#63798b;
+  font-size:14px;
+  font-weight:700;
+}
+
 .section-title{
-  margin:0 0 18px;
+  margin:0 0 20px;
   font-size:18px;
-  color:var(--azul-escuro);
+  color:#152f4a;
 }
 .pause-grid{
   display:grid;
-  grid-template-columns:repeat(3, 1fr);
+  grid-template-columns:repeat(3,1fr);
   gap:16px;
 }
-.pause-card{
-  border:1px solid var(--borda);
-  background:#fbfdfe;
-  border-radius:16px;
-  padding:18px 16px;
+.pause-box{
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:18px 18px 16px;
+  background:#fff;
 }
 .pause-label{
-  font-weight:700;
-  color:var(--muted);
   font-size:14px;
+  color:#4f6779;
+  font-weight:800;
+  margin-bottom:10px;
 }
 .pause-time{
-  font-size:18px;
-  font-weight:800;
-  color:#0f2d4a;
-  margin-top:12px;
+  font-size:22px;
+  font-weight:900;
+  color:#102d48;
 }
 .pause-note{
-  margin-top:8px;
-  color:var(--muted);
+  color:#607789;
   font-size:12px;
+  margin-top:8px;
 }
-.info-grid{
+.time-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:16px;
   margin-top:16px;
 }
-.info-mini{
-  background:#f6f8fb;
+.time-box{
+  background:#f8fafc;
   border-radius:14px;
-  padding:14px 16px;
+  padding:16px;
 }
-.info-mini .mini-label{
-  color:var(--muted);
+.time-label{
+  color:#6a7f90;
   font-size:13px;
-  margin-bottom:6px;
+  margin-bottom:8px;
 }
-.info-mini .mini-value{
-  font-size:16px;
-  font-weight:800;
-  color:#0f2d4a;
+.time-value{
+  color:#102d48;
+  font-size:18px;
+  font-weight:900;
 }
+
 .legend{
   display:flex;
-  gap:10px;
+  gap:12px;
   flex-wrap:wrap;
-  margin-bottom:18px;
+  margin-bottom:20px;
 }
-.legend span{
+.badge{
   display:inline-block;
-  padding:7px 11px;
   border-radius:999px;
-  font-size:12px;
-  font-weight:700;
+  padding:8px 14px;
+  font-size:13px;
+  font-weight:800;
 }
-.l-trabalho{ background:var(--verde-bg); color:var(--verde); }
-.l-folga{ background:var(--cinza-bg); color:var(--cinza); }
-.l-feriado{ background:var(--vermelho-bg); color:var(--vermelho); }
-.l-treinamento{ background:var(--roxo-bg); color:var(--roxo); }
-.l-iniciar{ background:var(--amarelo-bg); color:var(--amarelo); }
+.badge.work{background:var(--green-bg);color:var(--green)}
+.badge.off{background:var(--gray-bg);color:var(--gray)}
+.badge.holiday{background:var(--red-bg);color:var(--red)}
+.badge.training{background:var(--purple-bg);color:var(--purple)}
+.badge.start{background:var(--yellow-bg);color:var(--yellow)}
+
 .calendar-head{
   display:grid;
-  grid-template-columns:repeat(7, 1fr);
-  gap:10px;
+  grid-template-columns:repeat(7,1fr);
+  gap:12px;
   margin-bottom:10px;
 }
 .calendar-head div{
   text-align:center;
-  color:var(--muted);
+  color:#64798b;
   font-size:12px;
-  font-weight:800;
+  font-weight:900;
+  text-transform:uppercase;
 }
 .calendar{
   display:grid;
-  grid-template-columns:repeat(7, 1fr);
-  gap:10px;
+  grid-template-columns:repeat(7,1fr);
+  gap:12px;
 }
-.day{
-  border:1px solid var(--borda);
+.day-card{
+  min-height:120px;
+  border:1px solid var(--border);
   border-radius:16px;
+  padding:14px;
   background:#fff;
-  min-height:112px;
-  padding:12px;
 }
-.day.empty{
-  background:transparent;
-  border-color:transparent;
-  box-shadow:none;
+.day-card.empty{
+  background:#fff;
 }
-.day-name{
-  font-size:14px;
-  color:#0f2d4a;
-  font-weight:800;
+.day-number{
+  font-size:16px;
+  font-weight:900;
+  color:#102d48;
 }
 .day-status{
   display:inline-block;
-  margin-top:16px;
-  padding:6px 12px;
+  margin-top:18px;
   border-radius:999px;
-  font-size:12px;
-  font-weight:700;
+  padding:8px 12px;
+  font-size:13px;
+  font-weight:800;
 }
-.status-trabalho{ background:var(--verde-bg); color:var(--verde); }
-.status-folga{ background:var(--cinza-bg); color:var(--cinza); }
-.status-feriado{ background:var(--vermelho-bg); color:var(--vermelho); }
-.status-treinamento{ background:var(--roxo-bg); color:var(--roxo); }
-.status-a-iniciar{ background:var(--amarelo-bg); color:var(--amarelo); }
+.day-status.work{background:var(--green-bg);color:var(--green)}
+.day-status.off{background:var(--gray-bg);color:var(--gray)}
+.day-status.holiday{background:var(--red-bg);color:var(--red)}
+.day-status.training{background:var(--purple-bg);color:var(--purple)}
+.day-status.start{background:var(--yellow-bg);color:var(--yellow)}
 
-@media(max-width:900px){
-  .pause-grid{ grid-template-columns:1fr; }
-  .calendar-head{ grid-template-columns:repeat(2,1fr); }
-  .calendar{ grid-template-columns:repeat(2,1fr); }
-  .day.empty{ display:none; }
+.footer{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  color:#597183;
+  font-size:14px;
+  padding:12px 2px 0;
 }
-@media(max-width:560px){
-  header{ padding:18px 16px; }
-  .header-wrap img{ width:50px; }
-  .header-title{ font-size:18px; }
-  .container{ padding:22px 12px 30px; }
-  .login-card{ padding:24px 18px 20px; }
-  .info-grid{ grid-template-columns:1fr; }
-  .calendar-head{ display:none; }
-  .calendar{ grid-template-columns:1fr; }
-  .day{ min-height:auto; }
+.footer strong{color:#163554}
+
+#adminArea table{
+  width:100%;
+  border-collapse:collapse;
+}
+#adminArea th, #adminArea td{
+  padding:12px;
+  border-bottom:1px solid #e3ebf0;
+  text-align:left;
+  font-size:14px;
+}
+#adminArea th{
+  background:#f6fafc;
+  color:#476176;
+}
+.admin-toolbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin-bottom:18px;
+}
+
+@media (max-width: 980px){
+  .profile-card{
+    grid-template-columns:1fr;
+  }
+  .profile-side{
+    text-align:left;
+  }
+  .pause-grid, .time-grid, .calendar-head, .calendar{
+    grid-template-columns:1fr;
+  }
+  .header-inner{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+  .current-date{
+    white-space:normal;
+  }
 }
 </style>
 </head>
 <body>
-<header>
-  <div class="header-wrap">
-    <img src="ans-logo.jpg" alt="ANS">
-    <div>
-      <div class="header-title">Escala Operacional - ANS - LiderBpo</div>
-      <div class="header-sub">Portal operacional de pausas e escala</div>
-      <div class="header-version">Versão 8.6.2</div>
-    </div>
-  </div>
-</header>
-
-<div class="container">
-  <div id="login" class="card login-card">
-    <h2>Acesso do colaborador</h2>
-    <p class="desc">Informe seu usuário e senha individual.</p>
-
-    <label for="user">Usuário</label>
-    <input id="user" placeholder="nome.sobrenome">
-
-    <label for="pass">Senha</label>
-    <input id="pass" type="password" placeholder="Digite sua senha">
-
-    <div class="actions">
-      <button class="btn" onclick="entrar()">Entrar</button>
-    </div>
-
-    <div class="welcome">Olá, que bom ter você aqui! Tenha um ótimo plantão.</div>
-    <div id="erro" class="error"></div>
-  </div>
-
-  <div id="painel" style="display:none;">
-    <div class="toolbar">
-      <button class="btn btn-logout" onclick="logout()">Logout</button>
-    </div>
-
-    <div class="card identity">
-      <h2 id="nome"></h2>
-      <p id="supervisor"></p>
-      <p id="jornada"></p>
-    </div>
-
-    <div class="card">
-      <h3 class="section-title">Pausas programadas</h3>
-      <div class="pause-grid">
-        <div class="pause-card">
-          <div class="pause-label">Pausa 1 · 10 minutos</div>
-          <div class="pause-time" id="p1"></div>
-          <div class="pause-note">Início e fim programados</div>
-        </div>
-        <div class="pause-card">
-          <div class="pause-label">Almoço · 1 hora</div>
-          <div class="pause-time" id="almoco"></div>
-          <div class="pause-note">Início e fim programados</div>
-        </div>
-        <div class="pause-card">
-          <div class="pause-label">Pausa 2 · 10 minutos</div>
-          <div class="pause-time" id="p2"></div>
-          <div class="pause-note">Início e fim programados</div>
+  <header class="header">
+    <div class="header-inner">
+      <div class="brand">
+        <img src="ans-logo.jpg" alt="ANS">
+        <div>
+          <div class="brand-title">Escala Operacional - ANS - LiderBpo</div>
+          <div class="brand-version">Versão 8.8</div>
         </div>
       </div>
-
-      <div class="info-grid">
-        <div class="info-mini">
-          <div class="mini-label">Entrada prevista</div>
-          <div class="mini-value" id="entrada"></div>
-        </div>
-        <div class="info-mini">
-          <div class="mini-label">Saída prevista</div>
-          <div class="mini-value" id="saida"></div>
-        </div>
-      </div>
+      <div class="current-date" id="currentDate">📅</div>
     </div>
+  </header>
 
-    <div class="card">
-      <h3 class="section-title">Escala mensal · Setembro/2026</h3>
-
-      <div class="legend">
-        <span class="l-trabalho">Trabalho</span>
-        <span class="l-folga">Folga</span>
-        <span class="l-feriado">Feriado</span>
-        <span class="l-treinamento">Treinamento</span>
-        <span class="l-iniciar">A iniciar</span>
+  <main class="wrapper">
+    <section id="loginArea" class="card login-card">
+      <h2 class="login-title">Acesso do colaborador</h2>
+      <p class="login-desc">Informe seu usuário e senha individual.</p>
+      <input id="user" placeholder="nome.sobrenome">
+      <input id="pass" type="password" placeholder="Senha">
+      <div class="login-actions">
+        <button class="btn btn-primary" onclick="entrar()">Entrar</button>
       </div>
+      <div class="welcome">Olá, que bom ter você aqui! Tenha um ótimo plantão.</div>
+      <div class="error" id="erro"></div>
+    </section>
 
-      <div class="calendar-head">
-        <div>Segunda</div>
-        <div>Terça</div>
-        <div>Quarta</div>
-        <div>Quinta</div>
-        <div>Sexta</div>
-        <div>Sábado</div>
-        <div>Domingo</div>
+    <section id="operatorArea" class="hidden">
+      <section class="card">
+        <div class="profile-card">
+          <div class="avatar" id="avatar">AA</div>
+          <div class="profile-info">
+            <h2 id="opNome">Operador</h2>
+            <p id="opCargo">Operador de Atendimento</p>
+            <p id="opSupervisor">Supervisor: -</p>
+            <p id="opJornada">Jornada: --:-- às --:--</p>
+          </div>
+          <div class="profile-side">
+            <button class="logout-btn" onclick="logout()">↪ Sair</button>
+            <div class="logout-note">Bom trabalho hoje!</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h3 class="section-title">Pausas programadas</h3>
+        <div class="pause-grid">
+          <div class="pause-box">
+            <div class="pause-label">🟣 Pausa 1 - 10 minutos</div>
+            <div class="pause-time" id="pause1">--:-- → --:--</div>
+            <div class="pause-note">Início e fim programados</div>
+          </div>
+          <div class="pause-box">
+            <div class="pause-label">🍴 Almoço - 1 hora</div>
+            <div class="pause-time" id="almoco">--:-- → --:--</div>
+            <div class="pause-note">Início e fim programados</div>
+          </div>
+          <div class="pause-box">
+            <div class="pause-label">🟣 Pausa 2 - 10 minutos</div>
+            <div class="pause-time" id="pause2">--:-- → --:--</div>
+            <div class="pause-note">Início e fim programados</div>
+          </div>
+        </div>
+
+        <div class="time-grid">
+          <div class="time-box">
+            <div class="time-label">Entrada prevista</div>
+            <div class="time-value" id="entradaPrevista">--:--</div>
+          </div>
+          <div class="time-box">
+            <div class="time-label">Saída prevista</div>
+            <div class="time-value" id="saidaPrevista">--:--</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h3 class="section-title">Escala mensal · Setembro/2026</h3>
+
+        <div class="legend">
+          <span class="badge work">Trabalho</span>
+          <span class="badge off">Folga</span>
+          <span class="badge holiday">Feriado</span>
+          <span class="badge training">Treinamento</span>
+          <span class="badge start">A iniciar</span>
+        </div>
+
+        <div class="calendar-head">
+          <div>Segunda</div>
+          <div>Terça</div>
+          <div>Quarta</div>
+          <div>Quinta</div>
+          <div>Sexta</div>
+          <div>Sábado</div>
+          <div>Domingo</div>
+        </div>
+
+        <div class="calendar" id="calendar"></div>
+      </section>
+
+      <div class="footer">
+        <div><strong>ANS - LiderBpo</strong><br>Escala Operacional | Consulta individual</div>
+        <div>Versão 8.8</div>
       </div>
+    </section>
 
-      <div id="calendar" class="calendar"></div>
-    </div>
-  </div>
-</div>
+    <section id="adminArea" class="hidden card">
+      <div class="admin-toolbar">
+        <div>
+          <h2 style="margin:0;color:#123d61">Painel de Supervisão</h2>
+          <div style="margin-top:6px;color:#667c8d">Visão geral de escala e pausas dos operadores.</div>
+        </div>
+        <button class="logout-btn" onclick="logout()">↪ Sair</button>
+      </div>
+      <div style="overflow:auto">
+        <table>
+          <thead>
+            <tr>
+              <th>Operador</th>
+              <th>Cargo</th>
+              <th>Supervisor</th>
+              <th>Jornada</th>
+              <th>Pausa 1</th>
+              <th>Almoço</th>
+              <th>Pausa 2</th>
+            </tr>
+          </thead>
+          <tbody id="adminTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
 
 <script src="usuarios.js"></script>
 <script>
+const ADMIN_USER = "admin.ans";
+const ADMIN_PASS = "ANS#2026";
+
 const STATUS_MAP = [
-  "A iniciar","A iniciar","A iniciar","A iniciar","A iniciar","A iniciar",
+  "", "A iniciar","A iniciar","A iniciar","A iniciar","A iniciar","A iniciar",
   "Feriado","Treinamento","Treinamento","Treinamento","Treinamento","Folga","Folga",
   "Treinamento","Treinamento","Treinamento","Treinamento","Treinamento","Folga","Folga",
   "Trabalho","Trabalho","Trabalho","Trabalho","Trabalho","Folga","Folga",
   "Trabalho","Trabalho","Trabalho"
 ];
 
-const WEEKDAYS = ["Domingo","Segunda","Terça","Quarta","Quinta","Sexta","Sábado"];
+function formatDateTop(){
+  const dias = ["Domingo","Segunda-feira","Terça-feira","Quarta-feira","Quinta-feira","Sexta-feira","Sábado"];
+  const meses = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
+  const now = new Date(2026,8,13);
+  document.getElementById("currentDate").textContent = "📅 " + dias[now.getDay()] + ", " + now.getDate() + " de " + meses[now.getMonth()] + " de " + now.getFullYear();
+}
 
-function parseRange(value, duration){
-  if(!value) return "--:-- → --:--";
-  if(String(value).includes("→") || String(value).includes("-")) return String(value).replace("-", "→");
-  const start = String(value).trim();
-  const parts = start.split(":");
-  if(parts.length !== 2) return start;
-  let h = parseInt(parts[0],10), m = parseInt(parts[1],10);
-  m += duration;
+function toEndTime(start, minutes){
+  if(!start) return "--:-- → --:--";
+  if(String(start).includes("→")) return String(start);
+  const parts = String(start).split(":");
+  if(parts.length !== 2) return String(start);
+  let h = parseInt(parts[0], 10);
+  let m = parseInt(parts[1], 10);
+  m += minutes;
   h += Math.floor(m/60);
   m = m % 60;
   h = h % 24;
-  const end = String(h).padStart(2,"0")+":"+String(m).padStart(2,"0");
-  return start + " → " + end;
+  const end = String(h).padStart(2,"0") + ":" + String(m).padStart(2,"0");
+  return String(start).padStart(5,"0") + " → " + end;
 }
 
-function statusClass(status){
-  const s = status.toLowerCase().replaceAll(" ", "-");
-  if(s === "a-iniciar") return "status-a-iniciar";
-  return "status-" + s;
+function avatarFromName(name){
+  const parts = name.trim().split(/\s+/);
+  const first = parts[0] ? parts[0][0] : "";
+  const second = parts[1] ? parts[1][0] : (parts[0] && parts[0][1] ? parts[0][1] : "");
+  return (first + second).toUpperCase();
+}
+
+function classForStatus(status){
+  switch(status){
+    case "Trabalho": return "work";
+    case "Folga": return "off";
+    case "Feriado": return "holiday";
+    case "Treinamento": return "training";
+    case "A iniciar": return "start";
+    default: return "off";
+  }
 }
 
 function renderCalendar(){
   const calendar = document.getElementById("calendar");
   calendar.innerHTML = "";
-  const firstDay = new Date(2026, 8, 1); // setembro = 8
-  const offset = (firstDay.getDay() + 6) % 7; // monday-first
-  for(let i=0;i<offset;i++){
+  // September 1, 2026 is a Tuesday, so Monday-first offset = 1
+  const mondayOffset = 1;
+  for(let i=0; i<mondayOffset; i++){
     const empty = document.createElement("div");
-    empty.className = "day empty";
+    empty.className = "day-card empty";
     calendar.appendChild(empty);
   }
 
-  STATUS_MAP.forEach((status, index) => {
-    const dayNum = index + 1;
-    const date = new Date(2026, 8, dayNum);
-    const dayName = WEEKDAYS[date.getDay()];
-    const div = document.createElement("div");
-    div.className = "day";
-    div.innerHTML = `
-      <div class="day-name">${dayName}</div>
-      <span class="day-status ${statusClass(status)}">${status}</span>
+  for(let day=1; day<=30; day++){
+    const status = STATUS_MAP[day];
+    const cls = classForStatus(status);
+    const box = document.createElement("div");
+    box.className = "day-card";
+    box.innerHTML = `
+      <div class="day-number">${day}</div>
+      <div class="day-status ${cls}">${status}</div>
     `;
-    calendar.appendChild(div);
+    calendar.appendChild(box);
+  }
+}
+
+function fillOperator(operator){
+  document.getElementById("avatar").textContent = avatarFromName(operator.nome || "OP");
+  document.getElementById("opNome").textContent = operator.nome || "-";
+  document.getElementById("opCargo").textContent = operator.cargo || "Operador de Atendimento";
+  document.getElementById("opSupervisor").textContent = "Supervisor: " + (operator.supervisor || "-");
+  document.getElementById("opJornada").textContent = "Jornada: " + (operator.entrada || "--:--") + " às " + (operator.saida || "--:--");
+  document.getElementById("pause1").textContent = toEndTime(operator.pausa1, 10);
+  document.getElementById("almoco").textContent = toEndTime(operator.almoco, 60);
+  document.getElementById("pause2").textContent = toEndTime(operator.pausa2, 10);
+  document.getElementById("entradaPrevista").textContent = operator.entrada || "--:--";
+  document.getElementById("saidaPrevista").textContent = operator.saida || "--:--";
+  renderCalendar();
+}
+
+function fillAdmin(){
+  const tbody = document.getElementById("adminTableBody");
+  tbody.innerHTML = "";
+  usuarios.forEach(u => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${u.nome || "-"}</td>
+      <td>${u.cargo || "-"}</td>
+      <td>${u.supervisor || "-"}</td>
+      <td>${u.entrada || "--:--"} às ${u.saida || "--:--"}</td>
+      <td>${toEndTime(u.pausa1, 10)}</td>
+      <td>${toEndTime(u.almoco, 60)}</td>
+      <td>${toEndTime(u.pausa2, 10)}</td>
+    `;
+    tbody.appendChild(tr);
   });
 }
 
 function entrar(){
-  const u = document.getElementById("user").value.toLowerCase().trim();
-  const p = document.getElementById("pass").value.trim();
-  const x = usuarios.find(a => a.usuario === u && a.senha === p);
+  const user = document.getElementById("user").value.trim().toLowerCase();
+  const pass = document.getElementById("pass").value.trim();
   const erro = document.getElementById("erro");
+  erro.textContent = "";
 
-  if(!x){
+  if(user === ADMIN_USER && pass === ADMIN_PASS){
+    document.getElementById("loginArea").classList.add("hidden");
+    document.getElementById("operatorArea").classList.add("hidden");
+    document.getElementById("adminArea").classList.remove("hidden");
+    fillAdmin();
+    window.scrollTo({top:0, behavior:"smooth"});
+    return;
+  }
+
+  const operator = usuarios.find(u => u.usuario === user && u.senha === pass);
+  if(!operator){
     erro.textContent = "Usuário ou senha inválidos.";
     return;
   }
 
-  erro.textContent = "";
-  document.getElementById("login").style.display = "none";
-  document.getElementById("painel").style.display = "block";
-  document.getElementById("nome").textContent = x.nome;
-  document.getElementById("supervisor").textContent = "Supervisor: " + (x.supervisor || "-");
-  document.getElementById("jornada").textContent = "Jornada: " + (x.entrada || "--:--") + " às " + (x.saida || "--:--");
-  document.getElementById("p1").textContent = parseRange(x.pausa1, 10);
-  document.getElementById("almoco").textContent = parseRange(x.almoco, 60);
-  document.getElementById("p2").textContent = parseRange(x.pausa2, 10);
-  document.getElementById("entrada").textContent = x.entrada || "--:--";
-  document.getElementById("saida").textContent = x.saida || "--:--";
-  renderCalendar();
+  document.getElementById("loginArea").classList.add("hidden");
+  document.getElementById("adminArea").classList.add("hidden");
+  document.getElementById("operatorArea").classList.remove("hidden");
+  fillOperator(operator);
   window.scrollTo({top:0, behavior:"smooth"});
 }
 
 function logout(){
-  document.getElementById("painel").style.display = "none";
-  document.getElementById("login").style.display = "block";
+  document.getElementById("loginArea").classList.remove("hidden");
+  document.getElementById("operatorArea").classList.add("hidden");
+  document.getElementById("adminArea").classList.add("hidden");
   document.getElementById("user").value = "";
   document.getElementById("pass").value = "";
   document.getElementById("erro").textContent = "";
   document.getElementById("calendar").innerHTML = "";
   window.scrollTo({top:0, behavior:"smooth"});
 }
+
+formatDateTop();
 </script>
 </body>
 </html>
