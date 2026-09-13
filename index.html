@@ -2,58 +2,197 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Escala Operacional - ANS - LiderBpo | Versão 8.3</title>
+<title>Escala Operacional - ANS - LiderBpo | Versão 8.5</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <style>
-body{font-family:Arial;background:#edf4f7;margin:0;color:#17324d}
-header{background:#fff;border-bottom:4px solid #0c5f7b;padding:18px 28px}
-header img{width:55px;vertical-align:middle;margin-right:15px}
-h1{display:inline;color:#16385a;font-size:22px}
-.container{max-width:1150px;margin:auto;padding:25px}
-.card{background:#fff;border-radius:18px;padding:25px;margin-bottom:20px;box-shadow:0 4px 15px #ccd}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
-.box{background:#f4fafc;border:1px solid #d6e7ed;border-radius:14px;padding:18px}
-.box b{font-size:22px;display:block;margin-top:8px}
-.calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:10px}
-.day{border:1px solid #d8e2e8;border-radius:12px;min-height:90px;padding:10px}
-.tag{display:inline-block;padding:5px 10px;border-radius:20px;font-size:12px;margin-top:10px}
-.trabalho{background:#d8f5e5}.folga{background:#eef2f5}.feriado{background:#ffdede}.treino{background:#eadfff}.inicio{background:#fff1bf}
-@media(max-width:700px){.grid,.calendar{grid-template-columns:1fr}}
+:root{
+--azul:#0b5f7a;
+--azulesc:#123b5b;
+--fundo:#edf4f7;
+}
+*{box-sizing:border-box}
+body{
+margin:0;
+font-family:Arial,Helvetica,sans-serif;
+background:var(--fundo);
+color:#16324a;
+}
+header{
+background:white;
+padding:18px 35px;
+border-bottom:4px solid var(--azul);
+display:flex;
+align-items:center;
+gap:18px;
+}
+header img{width:60px}
+header h1{
+margin:0;
+font-size:24px;
+color:var(--azulesc);
+}
+header small{
+font-size:13px;
+font-weight:normal;
+}
+.container{
+max-width:1150px;
+margin:auto;
+padding:30px;
+}
+.card{
+background:#fff;
+border-radius:20px;
+padding:28px;
+margin-bottom:22px;
+box-shadow:0 6px 20px rgba(0,0,0,.08);
+}
+.login{
+max-width:500px;
+margin:40px auto;
+}
+input{
+width:100%;
+padding:14px;
+border-radius:10px;
+border:1px solid #ccd8df;
+margin:8px 0 15px;
+font-size:15px;
+}
+button{
+background:var(--azul);
+color:#fff;
+border:0;
+padding:13px 25px;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+}
+.welcome{
+text-align:center;
+margin-top:18px;
+color:#526b7d;
+}
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
+}
+.pause{
+background:#f7fbfc;
+border:1px solid #dbe7ec;
+border-radius:15px;
+padding:20px;
+}
+.pause b{
+display:block;
+font-size:24px;
+margin-top:10px;
+color:#102f4d;
+}
+.info{
+display:flex;
+justify-content:space-between;
+background:#f6fafc;
+padding:14px;
+border-radius:12px;
+margin-top:15px;
+}
+.calendar-title{
+font-size:20px;
+font-weight:bold;
+margin-bottom:15px;
+}
+.week{
+display:grid;
+grid-template-columns:repeat(7,1fr);
+font-weight:bold;
+text-align:center;
+color:#5c7080;
+margin-bottom:8px;
+}
+.calendar{
+display:grid;
+grid-template-columns:repeat(7,1fr);
+gap:10px;
+}
+.day{
+background:white;
+border:1px solid #dce5ea;
+border-radius:14px;
+min-height:100px;
+padding:12px;
+}
+.date{
+font-size:18px;
+font-weight:bold;
+}
+.status{
+margin-top:15px;
+display:inline-block;
+padding:6px 12px;
+border-radius:20px;
+font-size:13px;
+font-weight:bold;
+}
+.trabalho{background:#d9f6e6;color:#13733b}
+.folga{background:#eef1f4;color:#54606b}
+.feriado{background:#ffdede;color:#a42d2d}
+.treinamento{background:#e9ddff;color:#6438a0}
+.iniciar{background:#fff0bd;color:#896400}
+@media(max-width:700px){
+.grid,.calendar,.week{grid-template-columns:1fr}
+header h1{font-size:18px}
+.container{padding:15px}
+}
 </style>
 </head>
+
 <body>
 <header>
-<img src="ans-logo.jpg"><h1>Escala Operacional - ANS - LiderBpo<br><small>Versão 8.3</small></h1>
+<img src="ans-logo.jpg">
+<div>
+<h1>Escala Operacional - ANS - LiderBpo</h1>
+<small>Versão 8.5</small>
+</div>
 </header>
 
 <div class="container">
-<div id="login" class="card">
+
+<div class="card login" id="login">
 <h2>Acesso do colaborador</h2>
-<input id="user" placeholder="nome.sobrenome"><br><br>
-<input id="pass" type="password" placeholder="Senha"><br><br>
+<p>Informe seu usuário e senha individual.</p>
+<input id="user" placeholder="nome.sobrenome">
+<input id="pass" type="password" placeholder="Senha">
 <button onclick="entrar()">Entrar</button>
-<p>Olá, que bom ter você aqui! Tenha um ótimo plantão.</p>
+<p class="welcome">Olá, que bom ter você aqui! Tenha um ótimo plantão.</p>
+<p id="erro"></p>
 </div>
 
-<div id="painel" style="display:none">
+
+<div id="painel" style="display:none"><div style="text-align:right;margin-bottom:15px;"><button onclick="logout()" style="width:auto;background:#6b7280;padding:10px 18px;">Sair</button></div>
 
 <div class="card">
 <h2 id="nome"></h2>
-<p id="dados"></p>
+<div id="dados"></div>
 </div>
 
 <div class="card">
 <h2>Pausas programadas</h2>
 <div class="grid">
-<div class="box">☕ Pausa 1 - 10 minutos<b id="p1"></b></div>
-<div class="box">🍽 Almoço - 1 hora<b id="al"></b></div>
-<div class="box">☕ Pausa 2 - 10 minutos<b id="p2"></b></div>
+<div class="pause">☕ Pausa 1 - 10 minutos<b id="p1"></b></div>
+<div class="pause">🍽 Almoço - 1 hora<b id="al"></b></div>
+<div class="pause">☕ Pausa 2 - 10 minutos<b id="p2"></b></div>
 </div>
+<div class="info"><span>Entrada prevista</span><b id="entrada"></b><span>Saída prevista</span><b id="saida"></b></div>
 </div>
 
 <div class="card">
-<h2>Escala mensal · Setembro/2026</h2>
-<div class="calendar" id="cal"></div>
+<div class="calendar-title">Escala mensal · Setembro/2026</div>
+<div class="week">
+<div>SEG</div><div>TER</div><div>QUA</div><div>QUI</div><div>SEX</div><div>SÁB</div><div>DOM</div>
+</div>
+<div class="calendar" id="calendar"></div>
 </div>
 
 </div>
@@ -62,40 +201,37 @@ h1{display:inline;color:#16385a;font-size:22px}
 <script src="usuarios.js"></script>
 <script>
 function entrar(){
-let u=user.value.toLowerCase(), p=pass.value;
+let u=document.getElementById("user").value.toLowerCase().trim();
+let p=document.getElementById("pass").value.trim();
 let x=usuarios.find(a=>a.usuario==u && a.senha==p);
-if(!x){alert("Usuário ou senha inválidos");return;}
-login.style.display="none";painel.style.display="block";
+if(!x){erro.innerHTML="Usuário ou senha inválidos";return;}
+
+login.style.display="none";
+painel.style.display="block";
+
 nome.innerHTML=x.nome;
-dados.innerHTML="Cargo: "+x.cargo+"<br>Supervisor: "+x.supervisor+"<br>Jornada: "+x.entrada+" às "+x.saida;
-p1.innerHTML=x.pausa1;al.innerHTML=x.almoco;p2.innerHTML=x.pausa2;
-let estados=["A iniciar","A iniciar","A iniciar","A iniciar","A iniciar","Folga","Feriado","Treinamento","Treinamento","Treinamento","Treinamento","Folga","Folga","Treinamento","Treinamento","Treinamento","Treinamento","Treinamento","Folga","Folga","Trabalho","Trabalho","Trabalho","Trabalho","Trabalho","Folga","Folga","Trabalho","Trabalho","Trabalho"];
-estados.forEach((e,i)=>{
-let c=e=="Trabalho"?"trabalho":e=="Folga"?"folga":e=="Feriado"?"feriado":e=="Treinamento"?"treino":"inicio";
-cal.innerHTML+="<div class='day'><b>"+(i+1)+"</b><br><span class='tag "+c+"'>"+e+"</span></div>";
+dados.innerHTML="Supervisor: "+x.supervisor+"<br>Jornada: "+x.entrada+" às "+x.saida;
+
+p1.innerHTML=x.pausa1;
+al.innerHTML=x.almoco;
+p2.innerHTML=x.pausa2;
+entrada.innerHTML=x.entrada;
+saida.innerHTML=x.saida;
+
+let dias=["A iniciar","A iniciar","A iniciar","A iniciar","A iniciar","Folga","Feriado","Treinamento","Treinamento","Treinamento","Treinamento","Folga","Folga","Treinamento","Treinamento","Treinamento","Treinamento","Treinamento","Folga","Folga","Trabalho","Trabalho","Trabalho","Trabalho","Trabalho","Folga","Folga","Trabalho","Trabalho","Trabalho"];
+
+dias.forEach((d,i)=>{
+let c=d=="Trabalho"?"trabalho":d=="Folga"?"folga":d=="Feriado"?"feriado":d=="Treinamento"?"treinamento":"iniciar";
+calendar.innerHTML+="<div class='day'><div class='date'>"+(i+1)+"</div><span class='status "+c+"'>"+d+"</span></div>";
 });
 }
-</script>
-
-<style>
-.header-actions{
-position:absolute;right:30px;top:25px;
-background:#0c5f7b;color:#fff;padding:8px 14px;border-radius:20px;font-size:12px
-}
-.status-box{
-background:#f4fafc;border-left:5px solid #0c5f7b;
-padding:15px;border-radius:12px;margin-bottom:15px
-}
-.print-btn{
-background:#16385a;margin-top:10px
-}
-</style>
-<script>
-function imprimirEscala(){
- window.print();
+function logout(){
+painel.style.display="none";
+login.style.display="block";
+document.getElementById("user").value="";
+document.getElementById("pass").value="";
+document.getElementById("calendar").innerHTML="";
 }
 </script>
-
-<button class="print-btn" onclick="imprimirEscala()">🖨 Imprimir minha escala</button>
 </body>
 </html>
