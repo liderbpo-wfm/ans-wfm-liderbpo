@@ -1,2 +1,2 @@
-# ANS WFM LiderBPO 6.1
-Versão com interface profissional inicial.
+# ANS WFM Consulta 8.0
+Versão otimizada para GitHub Pages com identidade visual ANS.
