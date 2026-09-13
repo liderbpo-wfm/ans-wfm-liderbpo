@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Escala Operacional - ANS - LiderBpo | Versão 9.3.5</title>
+<title>Escala Operacional - ANS - LiderBpo | Versão 9.4</title>
 <style>
 :root{
   --bg:#edf4f7;
@@ -715,6 +715,29 @@ body{
 .alert-note{color:#607789;font-size:12px;margin-top:8px}
 @media (max-width: 980px){.alerts-list{grid-template-columns:1fr}}
 
+
+.summary-filter-row{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:14px}
+.summary-grid{display:grid;grid-template-columns:repeat(4,minmax(120px,1fr));gap:12px;margin-top:12px}
+.summary-item{background:#f6fbfd;border:1px solid #d6e3ea;border-radius:16px;padding:14px}
+.summary-item strong{display:block;font-size:24px;color:#123d61;margin-top:6px}
+.summary-item small{color:#607789;font-weight:700}
+.summary-note{margin-top:12px;color:#607789;font-size:13px;line-height:1.5}
+.timeline-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.timeline-chip{background:#eff8fc;border:1px solid #d6e8f0;color:#0c6b8a;padding:10px 14px;border-radius:999px;font-size:12px;font-weight:800}
+.timeline-list{display:grid;gap:10px;max-height:420px;overflow:auto;padding-right:4px}
+.timeline-row{display:grid;grid-template-columns:74px 1fr 64px;align-items:center;gap:12px}
+.timeline-hour{font-size:12px;font-weight:800;color:#4f6779}
+.timeline-track{height:16px;background:#edf4f7;border-radius:999px;overflow:hidden;position:relative}
+.timeline-bar{height:100%;background:linear-gradient(90deg,#68bdd2,#0c6b8a);border-radius:999px}
+.timeline-row.current .timeline-track{box-shadow:0 0 0 2px #fff, 0 0 0 4px rgba(12,107,138,.25)}
+.timeline-row.current .timeline-hour,.timeline-row.current .timeline-value{color:#123d61}
+.timeline-value{font-size:12px;font-weight:800;color:#4f6779;text-align:right}
+.legend-inline{display:flex;gap:12px;flex-wrap:wrap;color:#607789;font-size:12px;margin-top:10px}
+.legend-inline span{display:inline-flex;align-items:center;gap:6px}
+.legend-inline i{display:inline-block;width:10px;height:10px;border-radius:999px;background:#0c6b8a}
+.legend-inline i.muted{background:#d9e7ee}
+@media (max-width:900px){.summary-grid{grid-template-columns:repeat(2,1fr)}}
+
 </style>
 </head>
 <body>
@@ -724,7 +747,7 @@ body{
       <img src="ans-logo.jpg" alt="ANS">
       <div>
         <div class="brand-title">Escala Operacional - ANS - LiderBpo</div>
-        <div class="brand-version">Versão 9.3.5</div>
+        <div class="brand-version">Versão 9.4</div>
       </div>
     </div>
     <div class="current-date" id="currentDate">📅</div>
@@ -816,7 +839,7 @@ body{
 
     <div class="footer">
       <div><strong>ANS - LiderBpo</strong><br>Escala Operacional | Consulta individual</div>
-      <div>Versão 9.3.5</div>
+      <div>Versão 9.4</div>
     </div>
   </section>
 
@@ -892,29 +915,33 @@ body{
 
         <div class="mini-card">
           <h3>Resumo da supervisão</h3>
-          <div class="info-pills">
-            <span class="info-pill">Escalas monitoradas</span>
-            <span class="info-pill">Operadores ativos</span>
-            <span class="info-pill">Alertas futuros</span>
+          <div class="summary-filter-row">
+            <div class="field" style="max-width:280px;min-width:220px;margin:0">
+              <label for="supervisorResumo">Filtrar por supervisor</label>
+              <select class="select" id="supervisorResumo"></select>
+            </div>
+            <div class="info-pills">
+              <span class="info-pill">Equipe filtrada</span>
+              <span class="info-pill">Situação atual</span>
+              <span class="info-pill">Próximas pausas</span>
+            </div>
           </div>
-          <p class="helper">
-            Área preparada para evolução com integração de presença real,
-            ponto eletrônico e indicadores de produtividade.
-          </p>
+          <div id="summarySupervisorContent"></div>
         </div>
       </div>
 
       <div class="grid-2">
         <div class="mini-card">
-          <h3>Distribuição da operação</h3>
-          <div class="donut-wrap">
-            <div class="donut" id="donutChart">
-              <div class="donut-center">
-                <strong id="donutTotal">0</strong>
-                <span>Operadores</span>
-              </div>
-            </div>
-            <div class="legend-list" id="statusLegend"></div>
+          <h3>Pausas simultâneas por horário</h3>
+          <div class="timeline-head">
+            <div class="helper">Leitura dinâmica baseada nos horários programados de pausa e no efetivo total da equipe filtrada.</div>
+            <div class="timeline-chip" id="timelineNowChip">Agora: 0 em pausa</div>
+          </div>
+          <div id="pauseTimelineMeta" class="summary-note" style="margin-top:0;margin-bottom:10px"></div>
+          <div class="timeline-list" id="pauseTimelineList"></div>
+          <div class="legend-inline">
+            <span><i></i> volume de pausas simultâneas</span>
+            <span><i class="muted"></i> comparação com o efetivo filtrado</span>
           </div>
         </div>
 
@@ -1182,8 +1209,11 @@ function renderOperator(user){
 
 function fillSupervisorFilter(){
   const select = document.getElementById("filtroSupervisor");
+  const resumo = document.getElementById("supervisorResumo");
   const values = ["", ...new Set(usuarios.map(u => u.supervisor).filter(Boolean))].sort((a,b) => a.localeCompare(b));
-  select.innerHTML = '<option value="">Todos</option>' + values.filter(v => v !== "").map(v => '<option value="' + v + '">' + v + '</option>').join("");
+  const options = '<option value="">Todos</option>' + values.filter(v => v !== "").map(v => '<option value="' + v + '">' + v + '</option>').join("");
+  if(select) select.innerHTML = options;
+  if(resumo) resumo.innerHTML = options;
 }
 
 function fillAdminCollaborators(list){
@@ -1226,6 +1256,123 @@ function renderSelectedAdmin(usuario){
     <div id="miniCalendarHolder"></div>
   `;
   renderMiniCalendar("miniCalendarHolder");
+}
+
+function usersBySupervisorFilter(){
+  const sel = document.getElementById("supervisorResumo");
+  const supervisor = sel ? sel.value : "";
+  return usuarios.filter(u => !supervisor || (u.supervisor || "") === supervisor);
+}
+
+function pauseIntervalsForUser(u){
+  return [
+    {tipo:"Pausa 1", inicio:u.pausa1, duracao:10},
+    {tipo:"Almoço", inicio:u.almoco, duracao:60},
+    {tipo:"Pausa 2", inicio:u.pausa2, duracao:10}
+  ].map(p => ({...p, start: parseMinutes(p.inicio)})).filter(p => p.start !== null)
+   .map(p => ({...p, end: p.start + p.duracao}));
+}
+
+function nextPauseForUsers(list){
+  const now = minutesNow();
+  const events = [];
+  list.forEach(u => {
+    pauseIntervalsForUser(u).forEach(p => {
+      if(p.start > now){
+        events.push({nome:u.nome, tipo:p.tipo, horario:p.inicio, diff:p.start-now});
+      }
+    });
+  });
+  events.sort((a,b) => a.diff - b.diff || a.nome.localeCompare(b.nome));
+  return events.slice(0,3);
+}
+
+function pendingPauseAlertsByList(list){
+  const allowed = new Set(list.map(u => u.usuario));
+  return pendingPauseAlerts().filter(a => allowed.has(a.usuario));
+}
+
+function renderSupervisorSummary(){
+  const wrap = document.getElementById("summarySupervisorContent");
+  if(!wrap) return;
+  const list = usersBySupervisorFilter();
+  const now = minutesNow();
+  const total = list.length;
+  const emJornada = list.filter(u => isInJourney(u, now)).length;
+  const emPausa = list.filter(u => adminStatus(u, now) === "EM PAUSA").length;
+  const alertas = pendingPauseAlertsByList(list).length;
+  const proximas = nextPauseForUsers(list);
+  const nomeSup = (document.getElementById("supervisorResumo")?.value || "Todos os supervisores");
+  wrap.innerHTML = `
+    <div class="summary-grid">
+      <div class="summary-item"><small>Supervisor</small><strong>${nomeSup || "Todos"}</strong></div>
+      <div class="summary-item"><small>Operadores no filtro</small><strong>${total}</strong></div>
+      <div class="summary-item"><small>Em jornada agora</small><strong>${emJornada}</strong></div>
+      <div class="summary-item"><small>Em pausa agora</small><strong>${emPausa}</strong></div>
+      <div class="summary-item"><small>Alertas pendentes</small><strong>${alertas}</strong></div>
+      <div class="summary-item"><small>Fora da jornada</small><strong>${Math.max(0,total-emJornada)}</strong></div>
+      <div class="summary-item"><small>Próxima pausa</small><strong>${proximas[0] ? proximas[0].horario : "--:--"}</strong></div>
+      <div class="summary-item"><small>Tipo da próxima</small><strong>${proximas[0] ? proximas[0].tipo : "Sem previsão"}</strong></div>
+    </div>
+    <div class="summary-note">
+      ${proximas.length ? '<strong>Próximas pausas:</strong> ' + proximas.map(p => p.nome + ' · ' + p.tipo + ' às ' + p.horario).join(' | ') : 'Nenhuma próxima pausa encontrada para o filtro selecionado.'}
+    </div>
+  `;
+}
+
+function buildPauseTimeline(){
+  const wrap = document.getElementById("pauseTimelineList");
+  const meta = document.getElementById("pauseTimelineMeta");
+  const chip = document.getElementById("timelineNowChip");
+  if(!wrap) return;
+  const list = usersBySupervisorFilter();
+  if(!list.length){
+    wrap.innerHTML = '<div class="empty-state">Nenhum colaborador encontrado para o supervisor selecionado.</div>';
+    if(meta) meta.textContent = 'Selecione outro supervisor para visualizar a curva de pausas.';
+    if(chip) chip.textContent = 'Agora: 0 em pausa';
+    return;
+  }
+  const intervals = [];
+  let earliest = null;
+  let latest = null;
+  list.forEach(u => {
+    pauseIntervalsForUser(u).forEach(p => {
+      intervals.push(p);
+      if(earliest === null || p.start < earliest) earliest = p.start;
+      if(latest === null || p.end > latest) latest = p.end;
+    });
+  });
+  if(earliest === null || latest === null){
+    wrap.innerHTML = '<div class="empty-state">Sem pausas programadas para a equipe filtrada.</div>';
+    return;
+  }
+  const start = Math.floor(earliest / 10) * 10;
+  const end = Math.ceil(latest / 10) * 10;
+  const total = list.length;
+  const now = minutesNow();
+  let currentCount = 0;
+  const rows = [];
+  for(let t = start; t < end; t += 10){
+    let count = 0;
+    intervals.forEach(p => {
+      if(t >= p.start && t < p.end) count++;
+    });
+    if(now >= t && now < t+10) currentCount = count;
+    rows.push({time:t, count, pct: total ? (count/total)*100 : 0, current: now >= t && now < t+10});
+  }
+  const peak = rows.reduce((m,r) => Math.max(m, r.count), 0);
+  if(meta) meta.innerHTML = 'Efetivo filtrado: <strong>' + total + '</strong> operador(es). Pico simultâneo previsto: <strong>' + peak + '</strong> pausa(s).';
+  if(chip) chip.textContent = 'Agora: ' + currentCount + ' em pausa de ' + total;
+  wrap.innerHTML = rows.map(r => {
+    const w = total ? Math.max(2, r.pct) : 0;
+    const hh = String(Math.floor(r.time/60)).padStart(2,'0');
+    const mm = String(r.time%60).padStart(2,'0');
+    return '<div class="timeline-row ' + (r.current ? 'current' : '') + '">' +
+      '<div class="timeline-hour">' + hh + ':' + mm + '</div>' +
+      '<div class="timeline-track"><div class="timeline-bar" style="width:' + w + '%"></div></div>' +
+      '<div class="timeline-value">' + r.count + ' / ' + total + '</div>' +
+      '</div>';
+  }).join('');
 }
 
 function buildSupervisorBars(){
@@ -1491,17 +1638,23 @@ function limparFiltros(){
 
 function initAdmin(){
   updateKpis();
-  buildDonut();
   buildSupervisorBars();
   buildEntryBars();
   buildCurrentBreakList();
   renderPauseAlerts();
   fillSupervisorFilter();
+  renderSupervisorSummary();
+  buildPauseTimeline();
   applyAdminFilters();
 
   document.getElementById("filtroNome").oninput = applyAdminFilters;
   document.getElementById("filtroSupervisor").onchange = applyAdminFilters;
   document.getElementById("filtroStatus").onchange = applyAdminFilters;
+  const supervisorResumo = document.getElementById("supervisorResumo");
+  if(supervisorResumo) supervisorResumo.onchange = function(){
+    renderSupervisorSummary();
+    buildPauseTimeline();
+  };
   document.getElementById("adminColaborador").onchange = function(){
     renderSelectedAdmin(this.value);
   };
@@ -1551,9 +1704,10 @@ setInterval(() => {
   formatDateTop();
   if(!document.getElementById("adminArea").classList.contains("hidden")){
     updateKpis();
-    buildDonut();
     buildCurrentBreakList();
     renderPauseAlerts();
+    renderSupervisorSummary();
+    buildPauseTimeline();
     applyAdminFilters();
   }
 }, 60000);
