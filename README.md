@@ -1,11 +1,12 @@
-# ANS WFM Individual 9.0.1
+# ANS WFM Individual 9.1
 
-Ajuste fino visual:
-- redução sutil do tamanho das fontes
-- melhor leitura da tabela administrativa
-- badges/status menores
-- refinamento visual geral do dashboard admin
+Atualização:
+- Dashboard administrativo 9.1
+- Módulo de alertas de pausas
+- Apontamento por horário programado
+- Confirmação do supervisor para baixa do alerta
+- Refinamento visual
 
-Login Admin:
-- usuário: admin.ans
-- senha: ANS#2026
+Login administrador:
+Usuário: admin.ans
+Senha: ANS#2026
