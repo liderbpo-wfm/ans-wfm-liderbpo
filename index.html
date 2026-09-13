@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Escala Operacional - ANS - LiderBpo | Versão 9.4.2</title>
+<title>Escala Operacional - ANS - LiderBpo | Versão 10.2</title>
 <style>
 :root{
   --bg:#edf4f7;
@@ -739,6 +739,13 @@ body{
 @media (max-width:980px){.summary-grid{grid-template-columns:repeat(2,minmax(135px,1fr))}}
 @media (max-width:560px){.summary-grid{grid-template-columns:1fr}}
 
+
+.scale-import-card{margin-top:18px}
+.scale-import-grid{display:grid;grid-template-columns:1fr 260px;gap:16px;align-items:end}
+.scale-file{border:1px dashed #9bb7c8;border-radius:14px;padding:14px;background:#f8fcfd}
+.scale-btn{background:#0c6b8a;color:white;border:0;border-radius:12px;padding:12px 18px;font-weight:700;cursor:pointer}
+.scale-status{margin-top:12px;font-size:13px;color:#607789}
+@media(max-width:800px){.scale-import-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -748,7 +755,7 @@ body{
       <img src="ans-logo.jpg" alt="ANS">
       <div>
         <div class="brand-title">Escala Operacional - ANS - LiderBpo</div>
-        <div class="brand-version">Versão 9.4.2</div>
+        <div class="brand-version">Versão 10.2</div>
       </div>
     </div>
     <div class="current-date" id="currentDate">📅</div>
@@ -840,7 +847,7 @@ body{
 
     <div class="footer">
       <div><strong>ANS - LiderBpo</strong><br>Escala Operacional | Consulta individual</div>
-      <div>Versão 9.4.2</div>
+      <div>Versão 10.2</div>
     </div>
   </section>
 
@@ -852,6 +859,19 @@ body{
           <div class="admin-subtitle">Visão geral da operação, gráficos gerenciais, filtros e consulta individual de colaborador.</div>
         </div>
         <button class="logout-btn" onclick="logout()">↪ Sair</button>
+      </div>
+
+      <div class="mini-card scale-import-card">
+        <h3>📅 Gestão da Escala</h3>
+        <div class="admin-subtitle">Importe a escala mensal exportada do Google Sheets em formato Excel (.xlsx).</div>
+        <div class="scale-import-grid">
+          <div class="scale-file">
+            <label><strong>Arquivo da escala</strong></label><br>
+            <input type="file" id="arquivoEscala" accept=".xlsx,.xls,.csv">
+          </div>
+          <button class="scale-btn" onclick="importarEscalaArquivo()">Importar Escala</button>
+        </div>
+        <div class="scale-status" id="statusImportacao">Aguardando arquivo.</div>
       </div>
 
       <div class="kpi-grid">
@@ -1055,6 +1075,8 @@ body{
   </section>
 </main>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="importar_escala.js"></script>
 <script src="usuarios.js"></script>
 <script>
 const ADMIN_USER = "admin.ans";

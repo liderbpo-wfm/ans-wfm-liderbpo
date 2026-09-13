@@ -1,17 +1,13 @@
-# ANS WFM 9.4.2
+# ANS WFM 10.2 - Upload de Escala
 
-Ajuste do resumo por supervisor para um visual mais fino e proporcional.
+Atualização completa com módulo de importação Excel.
 
-## Ajustes
-- quadro de resumo mais compacto
-- cards menores e mais responsivos
-- tipografia reduzida e mais equilibrada
-- melhor proporção dentro do contexto geral do dashboard
-- mantido o gráfico de pausas simultâneas por horário
-- mantido o filtro por supervisor
+Novos recursos:
+- Gestão da Escala no Admin
+- Upload de arquivo XLSX exportado do Google Sheets
+- Validação de colunas
+- Leitura dos registros importados
 
-## Login Admin
-- usuário: `admin.ans`
-- senha: `ANS#2026`
-
-Após o upload, faça **Ctrl + F5** para atualizar o cache.
+Login Admin:
+admin.ans
+ANS#2026
