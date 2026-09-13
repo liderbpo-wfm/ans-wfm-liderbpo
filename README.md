@@ -1,7 +1,13 @@
-# ANS WFM Individual 8.5
+# ANS WFM Individual 8.7
 
-Melhorias:
-- Login individual
-- Área interna de escala
-- Calendário operacional
-- Botão de logout para retornar ao acesso inicial
+Novidade:
+- Login de supervisão:
+  Usuário: admin.ans
+  Senha: ANS#2026
+
+Painel administrativo:
+- visão geral dos operadores
+- jornadas
+- pausas programadas
+- escala geral
+
