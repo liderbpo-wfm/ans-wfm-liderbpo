@@ -1,14 +1,23 @@
-# ANS WFM 9.3.1
+# ANS WFM 9.3.4 - Consolidação Final
 
-Atualização consolidada.
+Pacote completo para GitHub Pages.
 
-Incluído:
-- Bloco visual de Alertas de Pausas no Admin
+Inclui:
+- Login individual de operadores
+- Login supervisor
+- Dashboard administrativo
+- Indicadores operacionais
+- Alertas de pausas
 - Confirmação pelo supervisor
-- Baixa do alerta
-- Preparação para histórico
+- Estrutura organizada
 
-Login:
+Login Admin:
 admin.ans
+
 Senha:
 ANS#2026
+
+Após upload:
+- substitua os arquivos antigos
+- mantenha somente esta versão
+- pressione Ctrl + F5 no navegador

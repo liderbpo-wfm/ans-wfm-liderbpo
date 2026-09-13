@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Escala Operacional - ANS - LiderBpo | Versão 9.2</title>
+<title>Escala Operacional - ANS - LiderBpo | Versão 9.3.2</title>
 <style>
 :root{
   --bg:#edf4f7;
@@ -693,6 +693,28 @@ body{
   }
   .bar-row{grid-template-columns:1fr}
 }
+
+.alerts-wrap{margin:22px 0 6px}
+.alerts-head{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:14px}
+.alerts-head h3{margin:0;color:#123d61;font-size:20px}
+.alert-count{display:inline-flex;align-items:center;gap:8px;background:#fff4de;color:#a36400;border:1px solid #f1ddb3;padding:10px 14px;border-radius:999px;font-size:13px;font-weight:800}
+.alerts-list{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.alert-card{border:1px solid #f3d2d2;background:#fff7f7;border-radius:18px;padding:18px;box-shadow:0 4px 12px rgba(197,48,48,.05)}
+.alert-card.warn{background:#fff9ef;border-color:#f3e0b2}
+.alert-title{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}
+.alert-op{font-size:15px;font-weight:800;color:#163554}
+.alert-badge{display:inline-flex;align-items:center;padding:7px 10px;border-radius:999px;font-size:11px;font-weight:800}
+.badge-danger{background:#fde4e4;color:#c53030}
+.badge-warning{background:#fff1cc;color:#a36400}
+.alert-meta{color:#4f6779;font-size:13px;line-height:1.5}
+.alert-actions{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap}
+.btn-confirm{background:#0c6b8a;color:#fff;border:0;border-radius:12px;padding:11px 16px;font-size:12px;font-weight:800;cursor:pointer}
+.btn-confirm:hover{background:#095b75}
+.btn-ghost{background:#fff;border:1px solid #d6e3ea;color:#123d61;border-radius:12px;padding:11px 16px;font-size:12px;font-weight:800;cursor:pointer}
+.alert-ok{border:1px solid #d9eadf;background:#f5fcf7;color:#0a7d3b;border-radius:18px;padding:18px;font-size:14px;font-weight:700}
+.alert-note{color:#607789;font-size:12px;margin-top:8px}
+@media (max-width: 980px){.alerts-list{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -702,7 +724,7 @@ body{
       <img src="ans-logo.jpg" alt="ANS">
       <div>
         <div class="brand-title">Escala Operacional - ANS - LiderBpo</div>
-        <div class="brand-version">Versão 9.2</div>
+        <div class="brand-version">Versão 9.3.2</div>
       </div>
     </div>
     <div class="current-date" id="currentDate">📅</div>
@@ -794,7 +816,7 @@ body{
 
     <div class="footer">
       <div><strong>ANS - LiderBpo</strong><br>Escala Operacional | Consulta individual</div>
-      <div>Versão 9.2</div>
+      <div>Versão 9.3.2</div>
     </div>
   </section>
 
@@ -834,9 +856,22 @@ body{
           <div class="kpi-value" id="kpiSupervisores">0</div>
           <div class="kpi-foot">Lideranças mapeadas</div>
         </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Alertas pendentes</div>
+          <div class="kpi-value" id="kpiAlertas">0</div>
+          <div class="kpi-foot">Pausas aguardando confirmação</div>
+        </div>
       </div>
 
-      
+      <div class="mini-card alerts-wrap">
+        <div class="alerts-head">
+          <h3>🔔 Alertas de pausas pendentes</h3>
+          <div class="alert-count">Pendentes agora: <span id="alertCountBadge">0</span></div>
+        </div>
+        <div class="alert-note">O sistema aponta automaticamente a pausa pelo horário programado. Quando o supervisor confirmar, o alerta some desta lista neste navegador.</div>
+        <div id="alertsPanel" style="margin-top:16px"></div>
+      </div>
+
       <div class="grid-2-equal">
         <div class="mini-card">
           <h3>Indicadores operacionais avançados</h3>
@@ -1266,6 +1301,103 @@ function buildCurrentBreakList(){
   `).join("") + (emPausa.length > 12 ? '<div class="helper" style="margin-top:10px">+' + (emPausa.length - 12) + ' colaborador(es) em pausa</div>' : '');
 }
 
+
+function todayKey(){
+  const now = new Date();
+  return now.getFullYear() + '-' + String(now.getMonth()+1).padStart(2,'0') + '-' + String(now.getDate()).padStart(2,'0');
+}
+
+function ackStore(){
+  try{return JSON.parse(localStorage.getItem('ans_pause_alert_ack') || '{}');}
+  catch(e){return {};}
+}
+
+function setAckStore(data){
+  localStorage.setItem('ans_pause_alert_ack', JSON.stringify(data));
+}
+
+function alertKey(usuario,tipo,horario){
+  return todayKey() + '|' + usuario + '|' + tipo + '|' + horario;
+}
+
+function pendingPauseAlerts(){
+  const nowMin = minutesNow();
+  const ack = ackStore();
+  const alerts = [];
+  usuarios.forEach(u => {
+    const items = [
+      {tipo:'Pausa 1', horario:u.pausa1, duracao:10},
+      {tipo:'Almoço', horario:u.almoco, duracao:60},
+      {tipo:'Pausa 2', horario:u.pausa2, duracao:10}
+    ];
+    items.forEach(item => {
+      const start = parseMinutes(item.horario);
+      if(start === null) return;
+      const end = start + item.duracao;
+      if(nowMin >= start && nowMin < end){
+        const key = alertKey(u.usuario, item.tipo, item.horario);
+        if(!ack[key]){
+          alerts.push({
+            key,
+            usuario:u.usuario,
+            nome:u.nome,
+            supervisor:u.supervisor || '-',
+            jornada:(u.entrada || '--:--') + ' às ' + (u.saida || '--:--'),
+            tipo:item.tipo,
+            horario:item.horario,
+            atraso: Math.max(0, nowMin - start)
+          });
+        }
+      }
+    });
+  });
+  alerts.sort((a,b) => b.atraso - a.atraso || a.nome.localeCompare(b.nome));
+  return alerts;
+}
+
+function confirmarAlertaPausa(key){
+  const ack = ackStore();
+  ack[key] = new Date().toLocaleString('pt-BR');
+  setAckStore(ack);
+  renderPauseAlerts();
+}
+
+function limparConfirmacoesAlertas(){
+  if(!confirm('Limpar todas as confirmações de alertas de hoje neste navegador?')) return;
+  localStorage.removeItem('ans_pause_alert_ack');
+  renderPauseAlerts();
+}
+
+function renderPauseAlerts(){
+  const panel = document.getElementById('alertsPanel');
+  const badge = document.getElementById('alertCountBadge');
+  const kpi = document.getElementById('kpiAlertas');
+  if(!panel) return;
+  const alerts = pendingPauseAlerts();
+  if(badge) badge.textContent = alerts.length;
+  if(kpi) kpi.textContent = alerts.length;
+
+  if(!alerts.length){
+    panel.innerHTML = '<div class="alert-ok">✅ Nenhum alerta de pausa pendente no momento.</div><div class="alert-actions"><button class="btn-ghost" onclick="limparConfirmacoesAlertas()">Limpar confirmações salvas</button></div>';
+    return;
+  }
+
+  panel.innerHTML = '<div class="alerts-list">' + alerts.map(a => {
+    const isCritical = a.atraso >= 5;
+    return '<div class="alert-card ' + (isCritical ? '' : 'warn') + '">' +
+      '<div class="alert-title">' +
+        '<div class="alert-op">' + a.nome + '</div>' +
+        '<span class="alert-badge ' + (isCritical ? 'badge-danger' : 'badge-warning') + '">' + (isCritical ? 'Ação imediata' : 'Pendente') + '</span>' +
+      '</div>' +
+      '<div class="alert-meta"><strong>' + a.tipo + '</strong> prevista para <strong>' + a.horario + '</strong><br>Supervisor: ' + a.supervisor + '<br>Jornada: ' + a.jornada + '<br>Minutos decorridos: ' + a.atraso + '</div>' +
+      '<div class="alert-actions">' +
+        '<button class="btn-confirm" onclick="confirmarAlertaPausa(\'' + a.key + '\')">Confirmar saída</button>' +
+      '</div>' +
+    '</div>';
+  }).join('') + '</div><div class="alert-actions"><button class="btn-ghost" onclick="limparConfirmacoesAlertas()">Limpar confirmações salvas</button></div>';
+}
+
+
 function buildDonut(){
   const nowMin = minutesNow();
   const pausa = usuarios.filter(u => adminStatus(u, nowMin) === "EM PAUSA").length;
@@ -1373,6 +1505,7 @@ function initAdmin(){
   buildSupervisorBars();
   buildEntryBars();
   buildCurrentBreakList();
+  renderPauseAlerts();
   fillSupervisorFilter();
   applyAdminFilters();
 
@@ -1430,6 +1563,7 @@ setInterval(() => {
     updateKpis();
     buildDonut();
     buildCurrentBreakList();
+    renderPauseAlerts();
     applyAdminFilters();
   }
 }, 60000);
