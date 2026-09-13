@@ -1,170 +1,91 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>LiderBPO ANS WFM 6.0</title>
+<title>LiderBPO ANS WFM 6.1</title>
 <style>
-body{font-family:Arial;background:#eef3f8;margin:0}
-header{background:#06283d;color:#fff;padding:20px}
-.container{padding:25px}
-.card{background:#fff;padding:20px;border-radius:15px;margin-bottom:20px;box-shadow:0 3px 12px #ccc}
-button{background:#005b96;color:#fff;border:0;padding:12px;border-radius:8px;margin:5px;cursor:pointer}
-input{padding:12px;width:90%;margin:5px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:15px}
-.box{background:#f2f8fc;padding:20px;border-radius:10px}
+body{margin:0;font-family:Arial;background:#eef3f8;color:#222}
+header{background:#06283d;color:#fff;padding:22px}
+.logo{font-size:28px;font-weight:bold}
+.container{padding:30px}
+.card{background:white;border-radius:18px;padding:25px;box-shadow:0 5px 20px #ccd;margin-bottom:20px}
+button{background:#005b96;color:#fff;border:0;padding:14px 25px;border-radius:10px;cursor:pointer}
+input{padding:14px;width:90%;margin:8px;border-radius:8px;border:1px solid #ccc}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.box{background:#f5f9fc;padding:20px;border-radius:12px}
 .online{color:green;font-weight:bold}
-.pausa{color:#d58a00;font-weight:bold}
+.pausa{color:#d88a00;font-weight:bold}
 </style>
 </head>
 <body>
 
 <header>
-<h2>LiderBPO | ANS WFM 6.0</h2>
+<div class="logo">LiderBPO | ANS WFM 6.1</div>
 </header>
 
 <div class="container">
 
-<div id="login" class="card">
-<h2>Acesso</h2>
+<div class="card" id="login">
+<h2>Acesso ao sistema</h2>
 <input id="usuario" placeholder="Usuário">
 <input id="senha" type="password" placeholder="Senha">
 <button onclick="entrar()">Entrar</button>
 </div>
 
-
 <div id="operador" style="display:none">
 
 <div class="card">
-<h2 id="nome"></h2>
+<h2>Olá, Operador ANS</h2>
 <h3 id="status">🔴 Offline</h3>
-
-<button onclick="inicio()">▶ Iniciar Expediente</button>
+<button onclick="expediente()">▶ Iniciar Expediente</button>
 <button onclick="pausa()">☕ Iniciar Pausa</button>
 <button onclick="retorno()">↩ Retornar</button>
-<button onclick="fim()">⏹ Encerrar</button>
-
-<p id="registro"></p>
+<p id="evento"></p>
 </div>
-
 
 <div class="card">
 <h2>Minha escala de pausas</h2>
-
 <div class="grid">
-<div class="box">Pausa 1<br>09:00 - 09:10<br>10 minutos</div>
-<div class="box">Almoço<br>12:00 - 13:00<br>60 minutos</div>
-<div class="box">Pausa 2<br>14:30 - 14:40<br>10 minutos</div>
+<div class="box">Pausa 1<br><b>09:00 - 09:10</b><br>10 minutos</div>
+<div class="box">Almoço<br><b>12:00 - 13:00</b><br>60 minutos</div>
+<div class="box">Pausa 2<br><b>14:30 - 14:40</b><br>10 minutos</div>
 </div>
-
 </div>
-
 
 <div class="card">
-<h2>Minha escala mensal</h2>
-<p>Regra: 5x2</p>
-<p>Segunda a sexta: Trabalho</p>
-<p>Sábado/Domingo: Folga</p>
-<p>Feriados: Sem expediente</p>
+<h2>Escala mensal</h2>
+<p>Modelo: 5x2</p>
+<p>Segunda a sexta: expediente</p>
+<p>Sábados, domingos e feriados: folga</p>
 </div>
 
 </div>
-
 
 <div id="admin" style="display:none">
-
 <div class="grid">
-
 <div class="card"><h2>117</h2>Operadores ativos</div>
 <div class="card"><h2>37%</h2>SLA</div>
-<div class="card"><h2 id="online">0</h2>Online</div>
-<div class="card"><h2 id="pausas">0</h2>Em pausa</div>
-
+<div class="card"><h2>84</h2>Online</div>
+<div class="card"><h2>12</h2>Em pausa</div>
 </div>
-
-<div class="card">
-<h2>Dashboard</h2>
-<p class="online">🟢 Atendimento</p>
-<p class="pausa">☕ Pausas</p>
-<p>🔴 Offline</p>
 </div>
 
 </div>
-
-</div>
-
 
 <script>
-
-let dados = JSON.parse(localStorage.getItem("ANS_WFM")) || {
-online:0,
-pausas:0
-};
-
-
 function entrar(){
-
-let u=usuario.value;
-let s=senha.value;
-
-if(u==="admin" && s==="ANS2026"){
-login.style.display="none";
-admin.style.display="block";
-atualizar();
-return;
+ if(usuario.value==="admin"){
+  login.style.display="none";
+  admin.style.display="block";
+ }else{
+  login.style.display="none";
+  operador.style.display="block";
+ }
 }
-
-if(u==="operador" && s==="ANS2026"){
-login.style.display="none";
-operador.style.display="block";
-nome.innerHTML="Operador ANS";
-}
-
-}
-
-
-function inicio(){
-status.innerHTML="🟢 Online";
-dados.online++;
-salvar();
-registro.innerHTML="Expediente iniciado: "+hora();
-}
-
-function pausa(){
-status.innerHTML="☕ Em pausa";
-dados.pausas++;
-dados.online--;
-salvar();
-registro.innerHTML="Pausa iniciada: "+hora();
-}
-
-function retorno(){
-status.innerHTML="🟢 Online";
-dados.online++;
-salvar();
-registro.innerHTML="Retorno: "+hora();
-}
-
-function fim(){
-status.innerHTML="🔴 Offline";
-dados.online--;
-salvar();
-registro.innerHTML="Finalizado: "+hora();
-}
-
-function salvar(){
-localStorage.setItem("ANS_WFM",JSON.stringify(dados));
-}
-
-function atualizar(){
-online.innerHTML=dados.online;
-pausas.innerHTML=dados.pausas;
-}
-
-function hora(){
-return new Date().toLocaleTimeString();
-}
-
+function hora(){return new Date().toLocaleTimeString()}
+function expediente(){status.innerHTML="🟢 Online";evento.innerHTML="Entrada registrada "+hora()}
+function pausa(){status.innerHTML="☕ Em pausa";evento.innerHTML="Pausa iniciada "+hora()}
+function retorno(){status.innerHTML="🟢 Online";evento.innerHTML="Retorno "+hora()}
 </script>
 
 </body>
