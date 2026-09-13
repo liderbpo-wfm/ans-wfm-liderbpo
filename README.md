@@ -1,14 +1,16 @@
-# ANS WFM Individual 8.8
+# ANS WFM Individual 9.0
 
-Atualização de layout da área logada:
+Atualização do painel administrativo:
 
-- área do operador refeita no padrão visual aprovado
-- cabeçalho com data no topo
-- card do operador com avatar, nome, cargo, supervisor e jornada
-- botão de sair no bloco superior
-- pausas programadas com início e fim
-- entrada e saída previstas
-- calendário mensal no layout visual aprovado
-- acesso da supervisão mantido:
-  usuário: admin.ans
-  senha: ANS#2026
+- Dashboard profissional de supervisão
+- Indicadores operacionais avançados
+- Área preparada para SLA e produtividade
+- Visão gerencial ampliada
+- Mantém login:
+  admin.ans
+  ANS#2026
+
+Arquivos:
+index.html
+usuarios.js
+ans-logo.jpg
