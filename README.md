@@ -1,16 +1,11 @@
-# ANS WFM Individual 9.0
+# ANS WFM Individual 9.0.1
 
-Atualização do painel administrativo:
+Ajuste fino visual:
+- redução sutil do tamanho das fontes
+- melhor leitura da tabela administrativa
+- badges/status menores
+- refinamento visual geral do dashboard admin
 
-- Dashboard profissional de supervisão
-- Indicadores operacionais avançados
-- Área preparada para SLA e produtividade
-- Visão gerencial ampliada
-- Mantém login:
-  admin.ans
-  ANS#2026
-
-Arquivos:
-index.html
-usuarios.js
-ans-logo.jpg
+Login Admin:
+- usuário: admin.ans
+- senha: ANS#2026
