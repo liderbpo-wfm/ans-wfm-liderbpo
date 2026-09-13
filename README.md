@@ -1,13 +1,11 @@
-# ANS WFM 10.2 - Upload de Escala
+# ANS WFM 10.2.1
 
-Atualização completa com módulo de importação Excel.
+Correção do módulo de importação de escala.
 
-Novos recursos:
-- Gestão da Escala no Admin
-- Upload de arquivo XLSX exportado do Google Sheets
-- Validação de colunas
-- Leitura dos registros importados
+Ajuste aplicado:
+- ignora linhas vazias da planilha;
+- contabiliza somente colaboradores com nome preenchido;
+- corrige divergência de quantidade importada.
 
-Login Admin:
-admin.ans
-ANS#2026
+Exemplo:
+Planilha com 117 operadores = sistema retorna 117 colaboradores.
