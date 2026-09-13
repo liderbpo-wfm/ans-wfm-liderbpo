@@ -1,23 +1,15 @@
-# ANS WFM 9.3.4 - Consolidação Final
+# ANS WFM 9.3.5
 
-Pacote completo para GitHub Pages.
+Ajuste final do Dashboard Administrativo.
 
-Inclui:
-- Login individual de operadores
-- Login supervisor
-- Dashboard administrativo
-- Indicadores operacionais
-- Alertas de pausas
-- Confirmação pelo supervisor
-- Estrutura organizada
+Alterações:
+- Removido card A iniciar.
+- Removido card Supervisores.
+- Mantido card Alertas pendentes.
+- Mantido painel de alertas de pausas.
+- Layout superior reorganizado para foco operacional.
 
 Login Admin:
 admin.ans
-
 Senha:
 ANS#2026
-
-Após upload:
-- substitua os arquivos antigos
-- mantenha somente esta versão
-- pressione Ctrl + F5 no navegador

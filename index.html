@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Escala Operacional - ANS - LiderBpo | Versão 9.3.2</title>
+<title>Escala Operacional - ANS - LiderBpo | Versão 9.3.5</title>
 <style>
 :root{
   --bg:#edf4f7;
@@ -724,7 +724,7 @@ body{
       <img src="ans-logo.jpg" alt="ANS">
       <div>
         <div class="brand-title">Escala Operacional - ANS - LiderBpo</div>
-        <div class="brand-version">Versão 9.3.2</div>
+        <div class="brand-version">Versão 9.3.5</div>
       </div>
     </div>
     <div class="current-date" id="currentDate">📅</div>
@@ -816,7 +816,7 @@ body{
 
     <div class="footer">
       <div><strong>ANS - LiderBpo</strong><br>Escala Operacional | Consulta individual</div>
-      <div>Versão 9.3.2</div>
+      <div>Versão 9.3.5</div>
     </div>
   </section>
 
@@ -845,16 +845,6 @@ body{
           <div class="kpi-label">Em pausa agora</div>
           <div class="kpi-value" id="kpiPausa">0</div>
           <div class="kpi-foot">Pausa 1, almoço ou pausa 2</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">A iniciar</div>
-          <div class="kpi-value" id="kpiIniciar">0</div>
-          <div class="kpi-foot">Status cadastrado na base</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">Supervisores</div>
-          <div class="kpi-value" id="kpiSupervisores">0</div>
-          <div class="kpi-foot">Lideranças mapeadas</div>
         </div>
         <div class="kpi-card">
           <div class="kpi-label">Alertas pendentes</div>
@@ -1442,8 +1432,8 @@ function updateKpis(){
   document.getElementById("kpiTotal").textContent = total;
   document.getElementById("kpiJornada").textContent = emJornada;
   document.getElementById("kpiPausa").textContent = emPausa;
-  document.getElementById("kpiIniciar").textContent = aIniciar;
-  document.getElementById("kpiSupervisores").textContent = supervisores;
+  
+  
 }
 
 function renderAdminTable(list){
