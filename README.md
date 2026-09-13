@@ -1,13 +1,8 @@
-# ANS WFM Individual 8.7
+# ANS WFM Individual 8.6.2
 
-Novidade:
-- Login de supervisão:
-  Usuário: admin.ans
-  Senha: ANS#2026
-
-Painel administrativo:
-- visão geral dos operadores
-- jornadas
-- pausas programadas
-- escala geral
-
+Ajustes aplicados:
+- mantida a identidade ANS/LiderBpo
+- versão 8.6.2
+- calendário exibindo apenas o dia da semana
+- status coloridos mantidos
+- logout interno mantido

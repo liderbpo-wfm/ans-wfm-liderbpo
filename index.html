@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Escala Operacional - ANS - LiderBpo | Versão 8.7</title>
+<title>Escala Operacional - ANS - LiderBpo | Versão 8.6.2</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <style>
 :root{
@@ -302,7 +302,7 @@ input:focus{
     <div>
       <div class="header-title">Escala Operacional - ANS - LiderBpo</div>
       <div class="header-sub">Portal operacional de pausas e escala</div>
-      <div class="header-version">Versão 8.7</div>
+      <div class="header-version">Versão 8.6.2</div>
     </div>
   </div>
 </header>
@@ -319,7 +319,7 @@ input:focus{
     <input id="pass" type="password" placeholder="Digite sua senha">
 
     <div class="actions">
-      <button class="btn" onclick="entrar()">Entrar</button><br><br><button class="btn" style="background:#16385a" onclick="entrarAdmin()">Acesso Supervisão</button>
+      <button class="btn" onclick="entrar()">Entrar</button>
     </div>
 
     <div class="welcome">Olá, que bom ter você aqui! Tenha um ótimo plantão.</div>
@@ -394,29 +394,6 @@ input:focus{
     </div>
   </div>
 </div>
-<div id="admin" class="card" style="display:none">
-  <div style="display:flex;justify-content:space-between;align-items:center">
-    <h2>Dashboard Supervisão - Escala Geral</h2>
-    <button class="btn btn-logout" onclick="sairAdmin()">Sair</button>
-  </div>
-  <p>Visão geral de operadores, jornadas e pausas programadas.</p>
-  <div style="overflow:auto">
-    <table style="width:100%;border-collapse:collapse">
-      <thead>
-        <tr style="background:#f2f7fa">
-          <th style="padding:12px;text-align:left">Operador</th>
-          <th style="padding:12px;text-align:left">Supervisor</th>
-          <th style="padding:12px;text-align:left">Jornada</th>
-          <th style="padding:12px;text-align:left">Pausa 1</th>
-          <th style="padding:12px;text-align:left">Almoço</th>
-          <th style="padding:12px;text-align:left">Pausa 2</th>
-        </tr>
-      </thead>
-      <tbody id="tabelaAdmin"></tbody>
-    </table>
-  </div>
-</div>
-
 
 <script src="usuarios.js"></script>
 <script>
@@ -511,36 +488,6 @@ function logout(){
   document.getElementById("calendar").innerHTML = "";
   window.scrollTo({top:0, behavior:"smooth"});
 }
-
-function entrarAdmin(){
- const u=document.getElementById("user").value.trim();
- const p=document.getElementById("pass").value.trim();
- if(u==="admin.ans" && p==="ANS#2026"){
-   document.getElementById("login").style.display="none";
-   document.getElementById("admin").style.display="block";
-   const tabela=document.getElementById("tabelaAdmin");
-   tabela.innerHTML="";
-   usuarios.forEach(x=>{
-     tabela.innerHTML += `<tr>
-     <td style="padding:12px;border-bottom:1px solid #ddd">${x.nome}</td>
-     <td style="padding:12px;border-bottom:1px solid #ddd">${x.supervisor||"-"}</td>
-     <td style="padding:12px;border-bottom:1px solid #ddd">${x.entrada||""} às ${x.saida||""}</td>
-     <td style="padding:12px;border-bottom:1px solid #ddd">${x.pausa1||"-"}</td>
-     <td style="padding:12px;border-bottom:1px solid #ddd">${x.almoco||"-"}</td>
-     <td style="padding:12px;border-bottom:1px solid #ddd">${x.pausa2||"-"}</td>
-     </tr>`;
-   });
- }else{
-   document.getElementById("erro").textContent="Acesso de supervisão inválido.";
- }
-}
-function sairAdmin(){
- document.getElementById("admin").style.display="none";
- document.getElementById("login").style.display="block";
- document.getElementById("user").value="";
- document.getElementById("pass").value="";
-}
-
 </script>
 </body>
 </html>
