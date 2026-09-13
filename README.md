@@ -1,16 +1,14 @@
-# ANS WFM Individual 9.3
+# ANS WFM 9.3.1
 
-Atualização do Dashboard Administrativo.
+Atualização consolidada.
 
-Novidades:
-- Bloco visual de Alertas de Pausas Pendentes
-- Contador de alertas
+Incluído:
+- Bloco visual de Alertas de Pausas no Admin
 - Confirmação pelo supervisor
-- Baixa do alerta após confirmação
-- Histórico local de confirmações
+- Baixa do alerta
+- Preparação para histórico
 
-Login Supervisor:
+Login:
 admin.ans
-
 Senha:
 ANS#2026
