@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Escala Operacional - ANS - LiderBpo | Versão 9.4.1</title>
+<title>Escala Operacional - ANS - LiderBpo | Versão 9.4.2</title>
 <style>
 :root{
   --bg:#edf4f7;
@@ -716,12 +716,12 @@ body{
 @media (max-width: 980px){.alerts-list{grid-template-columns:1fr}}
 
 
-.summary-filter-row{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:14px}
-.summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-top:12px}
-.summary-item{background:#f6fbfd;border:1px solid #d6e3ea;border-radius:16px;padding:14px;min-height:96px;display:flex;flex-direction:column;justify-content:space-between}
-.summary-item strong{display:block;font-size:clamp(16px,1.8vw,24px);line-height:1.15;color:#123d61;margin-top:6px;overflow-wrap:anywhere;word-break:break-word}
-.summary-item small{color:#607789;font-weight:700;font-size:12px;line-height:1.25}
-.summary-note{margin-top:12px;color:#607789;font-size:13px;line-height:1.5}
+.summary-filter-row{display:flex;justify-content:space-between;align-items:end;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+.summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:10px;margin-top:10px}
+.summary-item{background:#f6fbfd;border:1px solid #d6e3ea;border-radius:14px;padding:10px 12px;min-height:74px;display:flex;flex-direction:column;justify-content:center}
+.summary-item strong{display:block;font-size:clamp(14px,1.45vw,18px);line-height:1.15;color:#123d61;margin-top:4px;overflow-wrap:anywhere;word-break:break-word}
+.summary-item small{color:#607789;font-weight:700;font-size:11px;line-height:1.2}
+.summary-note{margin-top:10px;color:#607789;font-size:12px;line-height:1.4}
 .timeline-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
 .timeline-chip{background:#eff8fc;border:1px solid #d6e8f0;color:#0c6b8a;padding:10px 14px;border-radius:999px;font-size:12px;font-weight:800}
 .timeline-list{display:grid;gap:10px;max-height:420px;overflow:auto;padding-right:4px}
@@ -736,7 +736,7 @@ body{
 .legend-inline span{display:inline-flex;align-items:center;gap:6px}
 .legend-inline i{display:inline-block;width:10px;height:10px;border-radius:999px;background:#0c6b8a}
 .legend-inline i.muted{background:#d9e7ee}
-@media (max-width:900px){.summary-grid{grid-template-columns:repeat(2,minmax(140px,1fr))}}
+@media (max-width:980px){.summary-grid{grid-template-columns:repeat(2,minmax(135px,1fr))}}
 @media (max-width:560px){.summary-grid{grid-template-columns:1fr}}
 
 </style>
@@ -748,7 +748,7 @@ body{
       <img src="ans-logo.jpg" alt="ANS">
       <div>
         <div class="brand-title">Escala Operacional - ANS - LiderBpo</div>
-        <div class="brand-version">Versão 9.4.1</div>
+        <div class="brand-version">Versão 9.4.2</div>
       </div>
     </div>
     <div class="current-date" id="currentDate">📅</div>
@@ -840,7 +840,7 @@ body{
 
     <div class="footer">
       <div><strong>ANS - LiderBpo</strong><br>Escala Operacional | Consulta individual</div>
-      <div>Versão 9.4.1</div>
+      <div>Versão 9.4.2</div>
     </div>
   </section>
 
@@ -922,8 +922,8 @@ body{
               <select class="select" id="supervisorResumo"></select>
             </div>
             <div class="info-pills">
-              <span class="info-pill">Equipe filtrada</span>
-              <span class="info-pill">Situação atual</span>
+              <span class="info-pill">Equipe</span>
+              <span class="info-pill">Situação</span>
               <span class="info-pill">Próximas pausas</span>
             </div>
           </div>
