@@ -1,0 +1,828 @@
+[
+  {
+    "nome": "ALOYSIO CORREA RAMOS DE ALMEIDA",
+    "usuario": "aloysio.almeida",
+    "senha": "ANS#3888",
+    "cargo": "NÍVEL 2",
+    "supervisor": "NAIANA"
+  },
+  {
+    "nome": "LARYSSA MOREIRA LIMA DA SILVA",
+    "usuario": "laryssa.silva",
+    "senha": "ANS#8928",
+    "cargo": "NÍVEL 1",
+    "supervisor": "NAIANA"
+  },
+  {
+    "nome": "PRISCILA BRAGA MENA BARRETO CRUZ",
+    "usuario": "priscila.cruz",
+    "senha": "ANS#1233",
+    "cargo": "NÍVEL 1",
+    "supervisor": "NAIANA"
+  },
+  {
+    "nome": "SUSAN NERIS GUEDES DA SILVA NOBRE",
+    "usuario": "susan.nobre",
+    "senha": "ANS#8815",
+    "cargo": "NÍVEL 1",
+    "supervisor": "NAIANA"
+  },
+  {
+    "nome": "RAYANE REGINA ROSA DOS SANTOS",
+    "usuario": "rayane.santos",
+    "senha": "ANS#1886",
+    "cargo": "MONITOR",
+    "supervisor": "NAIANA"
+  },
+  {
+    "nome": "MARCIA VALERIA DE CARVALHO COSTA",
+    "usuario": "marcia.costa",
+    "senha": "ANS#0658",
+    "cargo": "NÍVEL 1",
+    "supervisor": "WALLACE"
+  },
+  {
+    "nome": "ALANA QUERIN DE OLIVEIRA TEODORO DA SILVA",
+    "usuario": "alana.silva",
+    "senha": "ANS#6512",
+    "cargo": "NÍVEL 1",
+    "supervisor": "NAIANA"
+  },
+  {
+    "nome": "ANA CAROLINE BAPTISTA SOARES",
+    "usuario": "ana.soares",
+    "senha": "ANS#4829",
+    "cargo": "NÍVEL 1",
+    "supervisor": "NAIANA"
+  },
+  {
+    "nome": "BRENDA LIMA DIAS DE AZEVEDO",
+    "usuario": "brenda.azevedo",
+    "senha": "ANS#2946",
+    "cargo": "NÍVEL 1",
+    "supervisor": "LARYSSA"
+  },
+  {
+    "nome": "LAIS CRISTINA BRAGA DORDRON",
+    "usuario": "lais.dordron",
+    "senha": "ANS#6511",
+    "cargo": "NÍVEL 1",
+    "supervisor": "WALLACE"
+  },
+  {
+    "nome": "MIRIAM FERNANDA DA SILVA",
+    "usuario": "miriam.silva",
+    "senha": "ANS#1726",
+    "cargo": "NÍVEL 1",
+    "supervisor": "WALLACE"
+  },
+  {
+    "nome": "CLEUBELIS LEITE PACHECO",
+    "usuario": "cleubelis.pacheco",
+    "senha": "ANS#3372",
+    "cargo": "NÍVEL 1",
+    "supervisor": "LARYSSA"
+  },
+  {
+    "nome": "DEBORA DAS NEVES ALBUQUERQUE",
+    "usuario": "debora.albuquerque",
+    "senha": "ANS#0241",
+    "cargo": "NÍVEL 1",
+    "supervisor": "LARYSSA"
+  },
+  {
+    "nome": "EDUARDA GOMES FONSECA",
+    "usuario": "eduarda.fonseca",
+    "senha": "ANS#4984",
+    "cargo": "NÍVEL 1",
+    "supervisor": "LARYSSA"
+  },
+  {
+    "nome": "JULLIANA ALVES DE SOUZA SILVA",
+    "usuario": "julliana.silva",
+    "senha": "ANS#6747",
+    "cargo": "NÍVEL 1",
+    "supervisor": "LARYSSA"
+  },
+  {
+    "nome": "ELAINE LORRANY MIRANDA DA SILVA",
+    "usuario": "elaine.silva",
+    "senha": "ANS#9437",
+    "cargo": "NÍVEL 1",
+    "supervisor": "LARYSSA"
+  },
+  {
+    "nome": "GISELLE ARCHANGELO MOURAO DA COSTA",
+    "usuario": "giselle.costa",
+    "senha": "ANS#3132",
+    "cargo": "NÍVEL 1",
+    "supervisor": "LARYSSA"
+  },
+  {
+    "nome": "IASMIN SOUZA MARTINS DE MAGALHAES",
+    "usuario": "iasmin.magalhaes",
+    "senha": "ANS#8058",
+    "cargo": "NÍVEL 1",
+    "supervisor": "LARYSSA"
+  },
+  {
+    "nome": "JULIANA DA CRUZ DE MOURA",
+    "usuario": "juliana.moura",
+    "senha": "ANS#4886",
+    "cargo": "NÍVEL 1",
+    "supervisor": "LARYSSA"
+  },
+  {
+    "nome": "MATHEUS SOARES BROWN",
+    "usuario": "matheus.brown",
+    "senha": "ANS#4000",
+    "cargo": "NÍVEL 1",
+    "supervisor": "WALLACE"
+  },
+  {
+    "nome": "ADRIANA DAS NEVES PEREIRA",
+    "usuario": "adriana.pereira",
+    "senha": "ANS#3865",
+    "cargo": "NÍVEL 1",
+    "supervisor": "NAIANA"
+  },
+  {
+    "nome": "ADRIEL DA SILVA FERNANDES",
+    "usuario": "adriel.fernandes",
+    "senha": "ANS#5192",
+    "cargo": "NÍVEL 1",
+    "supervisor": "NAIANA"
+  },
+  {
+    "nome": "ALESSANDRA DA SILVA SANTOS",
+    "usuario": "alessandra.santos",
+    "senha": "ANS#9590",
+    "cargo": "NÍVEL 1",
+    "supervisor": "NAIANA"
+  },
+  {
+    "nome": "ALICE PESSANHA DE OLIVEIRA GOMES",
+    "usuario": "alice.gomes",
+    "senha": "ANS#1902",
+    "cargo": "NÍVEL 1",
+    "supervisor": "NAIANA"
+  },
+  {
+    "nome": "ANA CLAUDIA MARINHO DOS SANTOS",
+    "usuario": "ana.santos",
+    "senha": "ANS#1822",
+    "cargo": "NÍVEL 1",
+    "supervisor": "NAIANA"
+  },
+  {
+    "nome": "ANA PAULA BOTELHO",
+    "usuario": "ana.botelho",
+    "senha": "ANS#1135",
+    "cargo": "NÍVEL 1",
+    "supervisor": "LARYSSA"
+  },
+  {
+    "nome": "ANGELICA BERNABE DOS SANTOS",
+    "usuario": "angelica.santos",
+    "senha": "ANS#2185",
+    "cargo": "NÍVEL 1",
+    "supervisor": "LARYSSA"
+  },
+  {
+    "nome": "BEATRIZ ULRICHSEN FERNANDES",
+    "usuario": "beatriz.fernandes",
+    "senha": "ANS#4398",
+    "cargo": "NÍVEL 1",
+    "supervisor": "LARYSSA"
+  },
+  {
+    "nome": "CAROLINE APARECIDA GUIMARAES DA SILVA ANDRADE",
+    "usuario": "caroline.andrade",
+    "senha": "ANS#8296",
+    "cargo": "NÍVEL 1",
+    "supervisor": "LARYSSA"
+  },
+  {
+    "nome": "CRISTIANE COELHO DA SILVA",
+    "usuario": "cristiane.silva",
+    "senha": "ANS#2479",
+    "cargo": "NÍVEL 1",
+    "supervisor": "LARYSSA"
+  },
+  {
+    "nome": "CRISTINA MARIA ALVES ARAUJO",
+    "usuario": "cristina.araujo",
+    "senha": "ANS#4527",
+    "cargo": "NÍVEL 1",
+    "supervisor": "LARYSSA"
+  },
+  {
+    "nome": "EVELYN DE SOUZA PEÇANHA",
+    "usuario": "evelyn.pecanha",
+    "senha": "ANS#8791",
+    "cargo": "NÍVEL 1",
+    "supervisor": "LARYSSA"
+  },
+  {
+    "nome": "GABRIELLY MAURICIO DE CERQUEIRA",
+    "usuario": "gabrielly.cerqueira",
+    "senha": "ANS#7385",
+    "cargo": "NÍVEL 1",
+    "supervisor": "LARYSSA"
+  },
+  {
+    "nome": "GLEICE KELLY TEIXEIRA GALHARDO",
+    "usuario": "gleice.galhardo",
+    "senha": "ANS#6286",
+    "cargo": "NÍVEL 1",
+    "supervisor": "LARYSSA"
+  },
+  {
+    "nome": "GUSTAVO FERREIRA RODRIGUES ARRUDA",
+    "usuario": "gustavo.arruda",
+    "senha": "ANS#1912",
+    "cargo": "NÍVEL 1",
+    "supervisor": "LARYSSA"
+  },
+  {
+    "nome": "JOSINETE AUGUSTA SOUSA CANTANHEDE",
+    "usuario": "josinete.cantanhede",
+    "senha": "ANS#1477",
+    "cargo": "NÍVEL 1",
+    "supervisor": "LARYSSA"
+  },
+  {
+    "nome": "KAYO VINICIUS RODRIGUES PEQUENO",
+    "usuario": "kayo.pequeno",
+    "senha": "ANS#5706",
+    "cargo": "NÍVEL 1",
+    "supervisor": "WALLACE"
+  },
+  {
+    "nome": "LARYSSA DOS SANTOS SOARES",
+    "usuario": "laryssa.soares",
+    "senha": "ANS#2210",
+    "cargo": "NÍVEL 1",
+    "supervisor": "WALLACE"
+  },
+  {
+    "nome": "LEONARDO MOREIRA",
+    "usuario": "leonardo.moreira",
+    "senha": "ANS#5762",
+    "cargo": "NÍVEL 1",
+    "supervisor": "WALLACE"
+  },
+  {
+    "nome": "LETICIA DANDARA CAETANO DE MIRANDA",
+    "usuario": "leticia.miranda",
+    "senha": "ANS#6651",
+    "cargo": "NÍVEL 1",
+    "supervisor": "WALLACE"
+  },
+  {
+    "nome": "LUCAS TAVARES STURIÃO",
+    "usuario": "lucas.sturiao",
+    "senha": "ANS#6655",
+    "cargo": "NÍVEL 1",
+    "supervisor": "WALLACE"
+  },
+  {
+    "nome": "LUCIANO DO NASCIMENTO FARIAS",
+    "usuario": "luciano.farias",
+    "senha": "ANS#5561",
+    "cargo": "NÍVEL 1",
+    "supervisor": "WALLACE"
+  },
+  {
+    "nome": "LUIZA VITORIA PROTA SILVA",
+    "usuario": "luiza.silva",
+    "senha": "ANS#3445",
+    "cargo": "NÍVEL 1",
+    "supervisor": "WALLACE"
+  },
+  {
+    "nome": "MARIA CLARA OLIVEIRA DA SILVA",
+    "usuario": "maria.silva",
+    "senha": "ANS#4507",
+    "cargo": "NÍVEL 1",
+    "supervisor": "WALLACE"
+  },
+  {
+    "nome": "MARIA EDUARDA DE SOUZA TEIXEIRA",
+    "usuario": "maria.teixeira",
+    "senha": "ANS#9187",
+    "cargo": "NÍVEL 1",
+    "supervisor": "WALLACE"
+  },
+  {
+    "nome": "NATASHA RANY DIAS PORTO",
+    "usuario": "natasha.porto",
+    "senha": "ANS#5569",
+    "cargo": "NÍVEL 1",
+    "supervisor": "WALLACE"
+  },
+  {
+    "nome": "PAMELLA DE OLIVEIRA GRANATO",
+    "usuario": "pamella.granato",
+    "senha": "ANS#8146",
+    "cargo": "NÍVEL 1",
+    "supervisor": "WALLACE"
+  },
+  {
+    "nome": "PAULO VICTOR VIEIRA LOPES",
+    "usuario": "paulo.lopes",
+    "senha": "ANS#0191",
+    "cargo": "NÍVEL 1",
+    "supervisor": "WALLACE"
+  },
+  {
+    "nome": "RAFAELA OLIVEIRA DE SOUZA",
+    "usuario": "rafaela.souza",
+    "senha": "ANS#9812",
+    "cargo": "NÍVEL 1",
+    "supervisor": "WALLACE"
+  },
+  {
+    "nome": "ROBERTA MATTOS MENEZES",
+    "usuario": "roberta.menezes",
+    "senha": "ANS#8194",
+    "cargo": "NÍVEL 1",
+    "supervisor": "WALLACE"
+  },
+  {
+    "nome": "THAYANE DE SOUZA FRANCA CRISTINO",
+    "usuario": "thayane.cristino",
+    "senha": "ANS#7406",
+    "cargo": "NÍVEL 1",
+    "supervisor": "WALLACE"
+  },
+  {
+    "nome": "VALERIA DE OLIVEIRA",
+    "usuario": "valeria.oliveira",
+    "senha": "ANS#4953",
+    "cargo": "NÍVEL 1",
+    "supervisor": "WALLACE"
+  },
+  {
+    "nome": "VANESSA DA SILVA SAMPAIO",
+    "usuario": "vanessa.sampaio",
+    "senha": "ANS#0230",
+    "cargo": "NÍVEL 1",
+    "supervisor": "RODRIGO"
+  },
+  {
+    "nome": "VICTOR HUGO MESQUITA FERREIRA",
+    "usuario": "victor.ferreira",
+    "senha": "ANS#5593",
+    "cargo": "NÍVEL 1",
+    "supervisor": "RODRIGO"
+  },
+  {
+    "nome": "VITORIA PACHECO DE OLIVEIRA",
+    "usuario": "vitoria.oliveira",
+    "senha": "ANS#9255",
+    "cargo": "NÍVEL 1",
+    "supervisor": "RODRIGO"
+  },
+  {
+    "nome": "WANESSA SALES BORGES DO NASCIMENTO DA SILVA",
+    "usuario": "wanessa.silva",
+    "senha": "ANS#1928",
+    "cargo": "NÍVEL 1",
+    "supervisor": "RODRIGO"
+  },
+  {
+    "nome": "ANDERSON LEONARDO ALVES DA SILVA",
+    "usuario": "anderson.silva",
+    "senha": "ANS#1528",
+    "cargo": "MONITOR",
+    "supervisor": "NAIANA"
+  },
+  {
+    "nome": "SILVANE OLIVEIRA DE SOUTO",
+    "usuario": "silvane.souto",
+    "senha": "ANS#2662",
+    "cargo": "NÍVEL 2",
+    "supervisor": "NAIANA"
+  },
+  {
+    "nome": "ALESSANDRA DA SILVA COSTA",
+    "usuario": "alessandra.costa",
+    "senha": "ANS#8908",
+    "cargo": "NÍVEL 1",
+    "supervisor": "RODRIGO"
+  },
+  {
+    "nome": "ALINE HENRIQUE GOMEZ",
+    "usuario": "aline.gomez",
+    "senha": "ANS#3686",
+    "cargo": "NÍVEL 1",
+    "supervisor": "RODRIGO"
+  },
+  {
+    "nome": "BIANCA DA FONSECA MAGALHAES",
+    "usuario": "bianca.magalhaes",
+    "senha": "ANS#2772",
+    "cargo": "NÍVEL 1",
+    "supervisor": "RODRIGO"
+  },
+  {
+    "nome": "DANIEL RIBAMAR DAS NEVES MARQUES",
+    "usuario": "daniel.marques",
+    "senha": "ANS#3306",
+    "cargo": "NÍVEL 1",
+    "supervisor": "RODRIGO"
+  },
+  {
+    "nome": "GABRIEL DE PAULA PARAISO ALVES",
+    "usuario": "gabriel.alves",
+    "senha": "ANS#2464",
+    "cargo": "NÍVEL 1",
+    "supervisor": "RODRIGO"
+  },
+  {
+    "nome": "KAROLYNY KEMPES DA SILVA",
+    "usuario": "karolyny.silva",
+    "senha": "ANS#5689",
+    "cargo": "NÍVEL 1",
+    "supervisor": "RODRIGO"
+  },
+  {
+    "nome": "LIGIA DE FARIAS SILVA",
+    "usuario": "ligia.silva",
+    "senha": "ANS#5477",
+    "cargo": "NÍVEL 1",
+    "supervisor": "RODRIGO"
+  },
+  {
+    "nome": "LUANA SANTOS SOARES",
+    "usuario": "luana.soares",
+    "senha": "ANS#2000",
+    "cargo": "NÍVEL 1",
+    "supervisor": "RODRIGO"
+  },
+  {
+    "nome": "MAIARA FERREIRA DE SOUZA",
+    "usuario": "maiara.souza",
+    "senha": "ANS#7131",
+    "cargo": "NÍVEL 1",
+    "supervisor": "RODRIGO"
+  },
+  {
+    "nome": "PAULO MARCIO LIRIO DA CUNHA JUNIOR",
+    "usuario": "paulo.junior",
+    "senha": "ANS#6922",
+    "cargo": "NÍVEL 1",
+    "supervisor": "RODRIGO"
+  },
+  {
+    "nome": "SUAN VENTURA SOARES",
+    "usuario": "suan.soares",
+    "senha": "ANS#7660",
+    "cargo": "NÍVEL 1",
+    "supervisor": "RODRIGO"
+  },
+  {
+    "nome": "LUIZ FELIPE DA SILVA CARVALHO",
+    "usuario": "luiz.carvalho",
+    "senha": "ANS#0834",
+    "cargo": "MONITOR",
+    "supervisor": "NAIANA"
+  },
+  {
+    "nome": "ALESSANDRA RIBEIRO MARTINS",
+    "usuario": "alessandra.martins",
+    "senha": "ANS#0174",
+    "cargo": "NÍVEL 2",
+    "supervisor": "NAIANA"
+  },
+  {
+    "nome": "SUSANA PRATA RIBEIRO",
+    "usuario": "susana.ribeiro",
+    "senha": "ANS#0406",
+    "cargo": "NÍVEL 2",
+    "supervisor": "NAIANA"
+  },
+  {
+    "nome": "CARLOS EDUARDO SANTOS LOPES",
+    "usuario": "carlos.lopes",
+    "senha": "ANS#9853",
+    "cargo": "NÍVEL 1",
+    "supervisor": "RODRIGO"
+  },
+  {
+    "nome": "DAYENNE COSTA DE OLIVEIRA",
+    "usuario": "dayenne.oliveira",
+    "senha": "ANS#4392",
+    "cargo": "NÍVEL 1",
+    "supervisor": "RODRIGO"
+  },
+  {
+    "nome": "EMANUEL MARTINS PIAIRO",
+    "usuario": "emanuel.piairo",
+    "senha": "ANS#6295",
+    "cargo": "NÍVEL 1",
+    "supervisor": "RODRIGO"
+  },
+  {
+    "nome": "KATIANNA FERREIRA RANGEL DA SILVA RODRIGUES",
+    "usuario": "katianna.rodrigues",
+    "senha": "ANS#8269",
+    "cargo": "NÍVEL 1",
+    "supervisor": "RODRIGO"
+  },
+  {
+    "nome": "KELEN CRISTINA PAULA DE ALMEIDA CAVALCANTI",
+    "usuario": "kelen.cavalcanti",
+    "senha": "ANS#8847",
+    "cargo": "NÍVEL 1",
+    "supervisor": "RODRIGO"
+  },
+  {
+    "nome": "LEONARDO GUILHERME CORDEIRO DA SILVA",
+    "usuario": "leonardo.silva",
+    "senha": "ANS#2853",
+    "cargo": "NÍVEL 1",
+    "supervisor": "LUCIENE"
+  },
+  {
+    "nome": "MATHEUS MONTEIRO DA SILVA",
+    "usuario": "matheus.silva",
+    "senha": "ANS#8875",
+    "cargo": "NÍVEL 1",
+    "supervisor": "LUCIENE"
+  },
+  {
+    "nome": "NATALIA CAROLINE MARTINS DA COSTA",
+    "usuario": "natalia.costa",
+    "senha": "ANS#8026",
+    "cargo": "NÍVEL 1",
+    "supervisor": "LUCIENE"
+  },
+  {
+    "nome": "TANIA ISABEL DA SILVA BISPO",
+    "usuario": "tania.bispo",
+    "senha": "ANS#4987",
+    "cargo": "NÍVEL 1",
+    "supervisor": "LUCIENE"
+  },
+  {
+    "nome": "VICTORIA VIEIRA LOPES",
+    "usuario": "victoria.lopes",
+    "senha": "ANS#1876",
+    "cargo": "NÍVEL 1",
+    "supervisor": "LUCIENE"
+  },
+  {
+    "nome": "VITORIA CRISTINI DE OLIVEIRA LUIZ",
+    "usuario": "vitoria.luiz",
+    "senha": "ANS#3561",
+    "cargo": "NÍVEL 1",
+    "supervisor": "LUCIENE"
+  },
+  {
+    "nome": "MARCOS ROBERTO RIJO DE CASTRO PEREIRA",
+    "usuario": "marcos.pereira",
+    "senha": "ANS#2716",
+    "cargo": "NÍVEL 1",
+    "supervisor": "WALLESKA"
+  },
+  {
+    "nome": "ALEX DA ROSA LEITAO",
+    "usuario": "alex.leitao",
+    "senha": "ANS#8846",
+    "cargo": "NÍVEL 1",
+    "supervisor": "LUCIENE"
+  },
+  {
+    "nome": "ANDRESSA DE ASSIS DA SILVA",
+    "usuario": "andressa.silva",
+    "senha": "ANS#2600",
+    "cargo": "NÍVEL 1",
+    "supervisor": "LUCIENE"
+  },
+  {
+    "nome": "ARTHUR VILLACA DE JESUS",
+    "usuario": "arthur.jesus",
+    "senha": "ANS#4010",
+    "cargo": "NÍVEL 1",
+    "supervisor": "LUCIENE"
+  },
+  {
+    "nome": "CAROLYNE FERREIRA FIRMES",
+    "usuario": "carolyne.firmes",
+    "senha": "ANS#2075",
+    "cargo": "NÍVEL 1",
+    "supervisor": "LUCIENE"
+  },
+  {
+    "nome": "DAVI XAVIER DOS SANTOS",
+    "usuario": "davi.santos",
+    "senha": "ANS#3874",
+    "cargo": "NÍVEL 1",
+    "supervisor": "LUCIENE"
+  },
+  {
+    "nome": "EVERTON DE JESUS LUCIO",
+    "usuario": "everton.lucio",
+    "senha": "ANS#5711",
+    "cargo": "NÍVEL 1",
+    "supervisor": "LUCIENE"
+  },
+  {
+    "nome": "GABRIELLY DE SOUZA TEIXEIRA",
+    "usuario": "gabrielly.teixeira",
+    "senha": "ANS#6421",
+    "cargo": "NÍVEL 1",
+    "supervisor": "LUCIENE"
+  },
+  {
+    "nome": "GISELE DA SILVA LOYOLA",
+    "usuario": "gisele.loyola",
+    "senha": "ANS#9806",
+    "cargo": "NÍVEL 1",
+    "supervisor": "LUCIENE"
+  },
+  {
+    "nome": "IGOR ABUCATER DOS SANTOS",
+    "usuario": "igor.santos",
+    "senha": "ANS#5569",
+    "cargo": "NÍVEL 1",
+    "supervisor": "LUCIENE"
+  },
+  {
+    "nome": "JHONY MARIO FERREIRA DOS SANTOS",
+    "usuario": "jhony.santos",
+    "senha": "ANS#1295",
+    "cargo": "NÍVEL 1",
+    "supervisor": "LUCIENE"
+  },
+  {
+    "nome": "JULIANA PINHO DIAS",
+    "usuario": "juliana.dias",
+    "senha": "ANS#1684",
+    "cargo": "NÍVEL 1",
+    "supervisor": "LUCIENE"
+  },
+  {
+    "nome": "KAROLYNE DE SOUZA ORNELLAS",
+    "usuario": "karolyne.ornellas",
+    "senha": "ANS#7550",
+    "cargo": "NÍVEL 1",
+    "supervisor": "LUCIENE"
+  },
+  {
+    "nome": "KAROLYNE SOARES DA SILVA BERNARDES",
+    "usuario": "karolyne.bernardes",
+    "senha": "ANS#9221",
+    "cargo": "NÍVEL 1",
+    "supervisor": "LUCIENE"
+  },
+  {
+    "nome": "LAURA MOREIRA DA SILVA",
+    "usuario": "laura.silva",
+    "senha": "ANS#3931",
+    "cargo": "NÍVEL 1",
+    "supervisor": "LUCIENE"
+  },
+  {
+    "nome": "LEONARDO ARAUJO DE FIGUEIREDO",
+    "usuario": "leonardo.figueiredo",
+    "senha": "ANS#2139",
+    "cargo": "NÍVEL 1",
+    "supervisor": "WALLESKA"
+  },
+  {
+    "nome": "LICIA MARGARIDA CALAZANS MIRANDA MARMELLO",
+    "usuario": "licia.marmello",
+    "senha": "ANS#8788",
+    "cargo": "NÍVEL 1",
+    "supervisor": "WALLESKA"
+  },
+  {
+    "nome": "LILIAN DA SILVA GOMES",
+    "usuario": "lilian.gomes",
+    "senha": "ANS#3944",
+    "cargo": "NÍVEL 1",
+    "supervisor": "WALLESKA"
+  },
+  {
+    "nome": "LILIAN RAQUEL BAPTISTA FERREIRA",
+    "usuario": "lilian.ferreira",
+    "senha": "ANS#0114",
+    "cargo": "NÍVEL 1",
+    "supervisor": "WALLESKA"
+  },
+  {
+    "nome": "MARIA VITORIA MOREIRA BARATA",
+    "usuario": "maria.barata",
+    "senha": "ANS#8525",
+    "cargo": "NÍVEL 1",
+    "supervisor": "WALLESKA"
+  },
+  {
+    "nome": "MAURA REGINA AUGUSTO BARBOSA",
+    "usuario": "maura.barbosa",
+    "senha": "ANS#9533",
+    "cargo": "NÍVEL 1",
+    "supervisor": "WALLESKA"
+  },
+  {
+    "nome": "NATHALIA CONCEICAO DA SILVA",
+    "usuario": "nathalia.silva",
+    "senha": "ANS#6030",
+    "cargo": "NÍVEL 1",
+    "supervisor": "WALLESKA"
+  },
+  {
+    "nome": "PRISCILA BERNARDINO DA SILVA",
+    "usuario": "priscila.silva",
+    "senha": "ANS#8479",
+    "cargo": "NÍVEL 1",
+    "supervisor": "WALLESKA"
+  },
+  {
+    "nome": "PRISCILA CRISLEI PAULA VALENTE",
+    "usuario": "priscila.valente",
+    "senha": "ANS#1161",
+    "cargo": "NÍVEL 1",
+    "supervisor": "WALLESKA"
+  },
+  {
+    "nome": "RAPHAELA FERREIRA ALMEIDA",
+    "usuario": "raphaela.almeida",
+    "senha": "ANS#0798",
+    "cargo": "NÍVEL 1",
+    "supervisor": "WALLESKA"
+  },
+  {
+    "nome": "RUAN DA ROCHA DE LIMA",
+    "usuario": "ruan.lima",
+    "senha": "ANS#2562",
+    "cargo": "NÍVEL 1",
+    "supervisor": "WALLESKA"
+  },
+  {
+    "nome": "SAMUEL ROGÉRIO DA COSTA DOS SANTOS",
+    "usuario": "samuel.santos",
+    "senha": "ANS#4603",
+    "cargo": "NÍVEL 1",
+    "supervisor": "WALLESKA"
+  },
+  {
+    "nome": "STHEFANY DOS SANTOS FONTES DE SOUSA",
+    "usuario": "sthefany.sousa",
+    "senha": "ANS#0598",
+    "cargo": "NÍVEL 1",
+    "supervisor": "WALLESKA"
+  },
+  {
+    "nome": "TATIANA LUCIA PEREIRA",
+    "usuario": "tatiana.pereira",
+    "senha": "ANS#9075",
+    "cargo": "NÍVEL 1",
+    "supervisor": "WALLESKA"
+  },
+  {
+    "nome": "THAINA NOBREGA DE SOUZA",
+    "usuario": "thaina.souza",
+    "senha": "ANS#1948",
+    "cargo": "NÍVEL 1",
+    "supervisor": "WALLESKA"
+  },
+  {
+    "nome": "VIVIANE PIRES MORAES MAIA COSTA",
+    "usuario": "viviane.costa",
+    "senha": "ANS#3051",
+    "cargo": "NÍVEL 1",
+    "supervisor": "WALLESKA"
+  },
+  {
+    "nome": "KAREN GONÇALVES BASTOS LOURENÇO",
+    "usuario": "karen.lourenco",
+    "senha": "ANS#0181",
+    "cargo": "NÍVEL 2",
+    "supervisor": "NAIANA"
+  },
+  {
+    "nome": "GABRIELLY CRISTINA SILVA SERRA",
+    "usuario": "gabrielly.serra",
+    "senha": "ANS#4874",
+    "cargo": "NÍVEL 1",
+    "supervisor": "WALLESKA"
+  },
+  {
+    "nome": "ROSELAINE GOULART MEDEIROS DE JESUS",
+    "usuario": "roselaine.jesus",
+    "senha": "ANS#6659",
+    "cargo": "NÍVEL 1",
+    "supervisor": "WALLESKA"
+  },
+  {
+    "nome": "VALERIA DE ANDRADE MARROCOS DA SILVA",
+    "usuario": "valeria.silva",
+    "senha": "ANS#9619",
+    "cargo": "NÍVEL 1",
+    "supervisor": "WALLESKA"
+  }
+]
