@@ -1,11 +1,9 @@
-ANS WFM 10.3.6.1 - COMPLETA CORRIGIDA
+ANS WFM 10.3.6.2
 
-Correções:
-- index atualizado para 10.3.6.1
-- login.js conectado ao sistema
-- mantém base de acessos ANS
-- mantém escala ativa importada
+Correção:
+- carregamento automático da base ACESSOS ANS;
+- login consulta a base carregada;
+- mantém escala ativa.
 
 Instalação:
-Substituir todos os arquivos do GitHub por este pacote.
-Limpar cache com Ctrl + F5.
+Substituir arquivos do GitHub pelo pacote completo.

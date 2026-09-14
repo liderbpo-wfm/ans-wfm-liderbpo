@@ -28,3 +28,5 @@ function autenticar(usuario, senha){
 
   return null;
 }
+
+// 10.3.6.2 - suporte ao carregamento automático
